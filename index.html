@@ -1057,12 +1057,12 @@
                 <form class="support-form" onsubmit="submitSupportRequest(event)">
                     <div class="form-group">
                         <label class="form-label">Store URL *</label>
-                        <input type="url" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com">
+                        <input type="text" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Email Address *</label>
-                        <input type="email" class="form-input" name="email" placeholder="your@email.com">
+                        <input type="text" class="form-input" name="email" placeholder="your@email.com">
                     </div>
 
                     <div class="form-group">
@@ -1228,8 +1228,9 @@ This request has been received. Our certified Shopify partner Donald willams wil
             setTimeout(() => {
                 switch(selectedChannel) {
                     case 'whatsapp':
-                        window.open(`https://watext.me/Shopify-pro001?text=${encodeURIComponent(message)}`, '_blank');
-                        break;
+    const phoneNumber = "17016597726"; // cleaned format
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+    break;
                     case 'telegram':
                         window.open(`https://t.me/timeless_digitalz?text=${encodeURIComponent(message)}`, '_blank');
                         break;
