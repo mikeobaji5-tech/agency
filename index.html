@@ -384,106 +384,202 @@
             margin-top: 16px;
         }
 
-        /* Results section - Data card style */
+        /* Updated Results section - Matching reference design */
         .results-section {
             margin-bottom: 40px;
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e3e5;
         }
 
         .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #202223;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #6d7175;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .progress-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .progress-title {
             font-size: 18px;
             font-weight: 600;
-            color: #202223;
-            margin-bottom: 20px;
+            color: #00848e;
+            margin-bottom: 16px;
         }
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
         }
 
         .result-card {
-            background: white;
-            border-radius: 12px;
-            border: 1px solid #e1e3e5;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s ease;
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
         }
 
         .result-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 132, 142, 0.15);
+            background: white;
         }
 
         .result-image {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: cover;
-            border-bottom: 1px solid #e1e3e5;
-            background: #f1f1f2;
-        }
-
-        .result-content {
-            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
         }
 
         .result-metric {
             font-size: 24px;
             font-weight: 700;
             color: #00848e;
-            margin-bottom: 4px;
+            margin-bottom: 12px;
         }
 
         .result-description {
             font-size: 14px;
             color: #6d7175;
+            line-height: 1.6;
+        }
+
+        /* Visual results showcase */
+        .visual-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .visual-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .visual-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 132, 142, 0.2);
+        }
+
+        .visual-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .visual-card-content {
+            padding: 20px;
+        }
+
+        .visual-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 8px;
+        }
+
+        .visual-card p {
+            font-size: 14px;
+            color: #6d7175;
             line-height: 1.5;
         }
 
-        /* Services section */
+        /* Updated Services section - Matching reference design */
         .services-section {
             background: white;
             border-radius: 12px;
-            padding: 32px;
+            padding: 40px;
             margin-bottom: 32px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             border: 1px solid #e1e3e5;
         }
 
-        .services-list {
-            list-style: none;
-            margin-top: 20px;
+        .services-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .services-list li {
-            padding: 16px 0;
-            border-bottom: 1px solid #f1f1f2;
-            font-size: 15px;
+        .services-title {
+            font-size: 28px;
+            font-weight: 700;
             color: #202223;
-            position: relative;
-            padding-left: 24px;
-            transition: all 0.2s ease;
+            margin-bottom: 12px;
         }
 
-        .services-list li:last-child {
-            border-bottom: none;
+        .services-subtitle {
+            font-size: 16px;
+            color: #6d7175;
+            font-weight: 400;
         }
 
-        .services-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #00848e;
-            font-weight: bold;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
-        .services-list li:hover {
-            background: #f9f9fa;
-            margin: 0 -16px;
-            padding-left: 40px;
-            padding-right: 16px;
-            border-radius: 6px;
+        .service-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .service-card:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 132, 142, 0.1);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: #00848e;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .service-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            color: #6d7175;
+            line-height: 1.5;
         }
 
         /* CTA section */
@@ -611,7 +707,7 @@
             font-size: 13px;
         }
 
-        /* Support Modal Styles */
+        /* Updated Support Modal - Matching reference design */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -619,9 +715,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1000;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(4px);
         }
 
         .modal-content {
@@ -630,170 +726,180 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 0;
-            max-width: 500px;
+            max-width: 520px;
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
         }
 
         .modal-header {
-            padding: 24px 24px 0;
-            border-bottom: 1px solid #e1e3e5;
-            margin-bottom: 0;
+            padding: 32px 32px 24px;
+            text-align: center;
+            background: linear-gradient(135deg, #00848e 0%, #026c75 100%);
+            color: white;
+            border-radius: 16px 16px 0 0;
         }
 
         .modal-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #202223;
+            font-size: 24px;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
         .modal-subtitle {
-            font-size: 13px;
-            color: #6d7175;
-            margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 0;
         }
 
         .close-button {
             position: absolute;
             top: 16px;
             right: 16px;
-            background: none;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             font-size: 24px;
-            color: #8c9196;
+            color: white;
             cursor: pointer;
-            padding: 4px;
-            border-radius: 4px;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.2s ease;
         }
 
         .close-button:hover {
-            background: #f1f1f2;
-            color: #202223;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
         }
 
         .support-channels {
-            padding: 20px 24px;
+            padding: 24px 32px;
             border-bottom: 1px solid #e1e3e5;
         }
 
         .channels-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: #202223;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            text-align: center;
         }
 
         .channel-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 12px;
         }
 
         .channel-option {
-            padding: 12px;
-            border: 1px solid #e1e3e5;
-            border-radius: 8px;
+            padding: 20px 12px;
+            border: 2px solid #e1e3e5;
+            border-radius: 12px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             background: white;
         }
 
         .channel-option:hover {
             border-color: #00848e;
             background: #f0fffe;
+            transform: translateY(-2px);
         }
 
         .channel-option.selected {
             border-color: #00848e;
             background: #e8f5f5;
+            box-shadow: 0 4px 12px rgba(0, 132, 142, 0.2);
         }
 
         .channel-icon {
-            font-size: 20px;
-            margin-bottom: 4px;
+            font-size: 28px;
+            margin-bottom: 8px;
         }
 
         .channel-name {
-            font-size: 11px;
+            font-size: 12px;
             color: #6d7175;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .support-form {
-            padding: 20px 24px 24px;
+            padding: 24px 32px 32px;
         }
 
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .form-label {
             display: block;
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             color: #202223;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .form-input {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #c9cccf;
-            border-radius: 6px;
-            font-size: 13px;
-            transition: border-color 0.2s ease;
+            padding: 12px 16px;
+            border: 2px solid #e1e3e5;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
             background: white;
         }
 
         .form-input:focus {
             outline: none;
             border-color: #00848e;
-            box-shadow: 0 0 0 2px rgba(0, 132, 142, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 132, 142, 0.1);
         }
 
         .form-select {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #c9cccf;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 12px 16px;
+            border: 2px solid #e1e3e5;
+            border-radius: 8px;
+            font-size: 14px;
             background: white;
             cursor: pointer;
         }
 
         .form-textarea {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #c9cccf;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 12px 16px;
+            border: 2px solid #e1e3e5;
+            border-radius: 8px;
+            font-size: 14px;
             resize: vertical;
-            min-height: 80px;
+            min-height: 100px;
             font-family: inherit;
         }
 
         .submit-button {
             width: 100%;
-            background: #00848e;
+            background: linear-gradient(135deg, #00848e 0%, #026c75 100%);
             color: white;
-            padding: 12px;
+            padding: 16px;
             border: none;
-            border-radius: 6px;
-            font-weight: 500;
+            border-radius: 8px;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 13px;
-            transition: background 0.2s ease;
+            font-size: 14px;
+            transition: all 0.2s ease;
         }
 
         .submit-button:hover:not(:disabled) {
-            background: #026c75;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 132, 142, 0.3);
         }
 
         .submit-button:disabled {
@@ -804,10 +910,10 @@
         .ticket-info {
             background: #f0f9ff;
             border: 1px solid #38bdf8;
-            border-radius: 6px;
-            padding: 12px;
-            margin-top: 12px;
-            font-size: 12px;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 13px;
             color: #0369a1;
         }
 
@@ -829,15 +935,20 @@
 
             .hero-section,
             .services-section,
-            .cta-section {
+            .cta-section,
+            .results-section {
                 padding: 24px;
             }
 
-            .hero-title {
-                font-size: 28px;
+            .hero-title,
+            .section-title,
+            .services-title {
+                font-size: 24px;
             }
 
-            .results-grid {
+            .results-grid,
+            .services-grid,
+            .visual-results {
                 grid-template-columns: 1fr;
             }
 
@@ -856,6 +967,18 @@
 
             .preloader-tagline {
                 font-size: 14px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+            }
+
+            .modal-header,
+            .support-channels,
+            .support-form {
+                padding-left: 20px;
+                padding-right: 20px;
             }
         }
     </style>
@@ -935,51 +1058,112 @@
                     </div>
                 </div>
 
+                <!-- Updated Results Section - Matching Reference Design -->
                 <div class="results-section">
+                    <div class="progress-header">
+                        <h2 class="progress-title">Case Progress</h2>
+                    </div>
+                    
                     <h2 class="section-title">Recent Merchant Success Stories</h2>
+                    <p class="section-subtitle">Real results from our certified specialist network</p>
+                    
                     <div class="results-grid">
                         <div class="result-card">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Conversion improvement chart" class="result-image">
-                            <div class="result-content">
-                                <div class="result-metric">+30% conversion</div>
-                                <div class="result-description">Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks for a wellness brand.</div>
-                            </div>
+                            <div class="result-metric">+30% conversion</div>
+                            <div class="result-description">Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks for a wellness brand.</div>
                         </div>
 
                         <div class="result-card">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="SEO growth analytics" class="result-image">
-                            <div class="result-content">
-                                <div class="result-metric">+45% organic traffic</div>
-                                <div class="result-description">SEO audit + metadata improvements increased organic visits by 45% in 60 days for home goods store.</div>
-                            </div>
+                            <div class="result-metric">+45% organic traffic</div>
+                            <div class="result-description">SEO audit + metadata improvements increased organic visits by 45% in 60 days for a home goods store.</div>
                         </div>
 
                         <div class="result-card">
-                            <img src="https://i.pinimg.com/736x/fb/fa/1d/fbfa1dabc7dd0a3ceec42dd23e140a98.jpg" alt="Revenue growth dashboard" class="result-image">
-                            <div class="result-content">
-                                <div class="result-metric">+40% revenue</div>
-                                <div class="result-description">CRO & ad funnel optimization scaled revenue 40% quarter-over-quarter for fashion merchant.</div>
+                            <div class="result-metric">+40% revenue</div>
+                            <div class="result-description">CRO & ad funnel optimization scaled revenue 40% quarter-over-quarter for a fashion merchant.</div>
+                        </div>
+                    </div>
+
+                    <div class="visual-results">
+                        <div class="visual-card">
+                            <img src="https://i.pinimg.com/736x/6c/71/e8/6c71e84df436880b442e6598dc4a999e.jpg" alt="Conversion lift chart">
+                            <div class="visual-card-content">
+                                <h4>Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks.</h4>
+                            </div>
+                        </div>
+
+                        <div class="visual-card">
+                            <img src="https://i.pinimg.com/736x/e4/8f/df/e48fdf1b74b2471bf537193df06c01ac.jpg" alt="SEO visibility">
+                            <div class="visual-card-content">
+                                <h4>SEO audit + metadata improvements increased organic visits by 45% in 60 days.</h4>
+                            </div>
+                        </div>
+
+                        <div class="visual-card">
+                            <img src="https://i.pinimg.com/736x/fb/fa/1d/fbfa1dabc7dd0a3ceec42dd23e140a98.jpg" alt="Revenue growth graph">
+                            <div class="visual-card-content">
+                                <h4>CRO & ad funnel tweaks scaled revenue 40% quarter-over-quarter for a fashion merchant.</h4>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Updated Services Section - Matching Reference Design -->
                 <div class="services-section">
-                    <h2 class="section-title">Comprehensive Store Growth Services</h2>
-                    <p style="color: #6d7175; font-size: 14px; margin-bottom: 8px;">Our certified partner network provides end-to-end merchant support:</p>
+                    <div class="services-header">
+                        <h2 class="services-title">Comprehensive Store Growth Services</h2>
+                        <p class="services-subtitle">Our certified specialist network provides end-to-end merchant support:</p>
+                    </div>
                     
-                    <ul class="services-list">
-                        <li>Store compliance audit & policy review</li>
-                        <li>Technical SEO optimization & site speed improvements</li>
-                        <li>Conversion rate optimization & A/B testing</li>
-                        <li>Shopify Plus migration & custom development</li>
-                        <li>Payment gateway optimization & fraud prevention</li>
-                        <li>Marketing automation & customer retention strategies</li>
-                        <li>App integration & workflow optimization</li>
-                        <li>Analytics setup & performance monitoring</li>
-                        <li>Security headers & GDPR compliance implementation</li>
-                        <li>24/7 merchant support & emergency response</li>
-                    </ul>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">🔒</div>
+                            <h3 class="service-title">Compliance & Security</h3>
+                            <p class="service-description">Protect your store and payments with expert guidance.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">📈</div>
+                            <h3 class="service-title">Marketing & Sales Growth</h3>
+                            <p class="service-description">Boost your revenue with tailored campaigns and strategies.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">🔍</div>
+                            <h3 class="service-title">SEO & Store Visibility</h3>
+                            <p class="service-description">Improve search ranking and attract more customers.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">⚡</div>
+                            <h3 class="service-title">Shopify Best Practices</h3>
+                            <p class="service-description">Optimize your store operations and performance for success.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">💳</div>
+                            <h3 class="service-title">Payment Optimization</h3>
+                            <p class="service-description">Gateway optimization & fraud prevention solutions.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">🎯</div>
+                            <h3 class="service-title">Conversion Rate Optimization</h3>
+                            <p class="service-description">A/B testing and user experience improvements.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">🔧</div>
+                            <h3 class="service-title">Custom Development</h3>
+                            <p class="service-description">Shopify Plus migration & bespoke functionality.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">📊</div>
+                            <h3 class="service-title">Analytics & Monitoring</h3>
+                            <p class="service-description">Performance tracking and data-driven insights.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cta-section">
@@ -1007,8 +1191,6 @@
                             <li><a href="#migration">Plus Migration</a></li>
                         </ul>
                     </div>
-                        </ul>
-                    </div>
                     
                     <div class="footer-section">
                         <h4>Contact Info</h4>
@@ -1027,7 +1209,7 @@
             </div>
         </footer>
 
-        <!-- Support Modal -->
+        <!-- Updated Support Modal - Matching Reference Design -->
         <div id="supportModal" class="modal-overlay" onclick="closeSupportModal(event)">
             <div class="modal-content" onclick="event.stopPropagation()">
                 <div class="modal-header">
@@ -1037,7 +1219,7 @@
                 </div>
 
                 <div class="support-channels">
-                    <div class="channels-title">Select Support Channel</div>
+                    <div class="channels-title">Select Your Preferred Channel</div>
                     <div class="channel-grid">
                         <div class="channel-option" data-channel="whatsapp" onclick="selectChannel('whatsapp')">
                             <div class="channel-icon">💬</div>
@@ -1057,12 +1239,12 @@
                 <form class="support-form" onsubmit="submitSupportRequest(event)">
                     <div class="form-group">
                         <label class="form-label">Store URL *</label>
-                        <input type="text" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com">
+                        <input type="text" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Email Address *</label>
-                        <input type="text" class="form-input" name="email" placeholder="your@email.com">
+                        <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
                     </div>
 
                     <div class="form-group">
@@ -1211,26 +1393,26 @@
             // Prepare message
             const message = `🎫 SUPPORT TICKET: ${ticketId}
             
- STORE DETAILS:
+🏪 STORE DETAILS:
 • Store URL: ${formData.get('storeUrl')}
 • Contact Email: ${formData.get('email')}
 • Issue Type: ${formData.get('issueType')}
 
- ADDITIONAL DETAILS:
+📝 ADDITIONAL DETAILS:
 ${formData.get('details') || 'No additional details provided'}
 
- REQUEST TIME: ${new Date().toLocaleString()}
+⏰ REQUEST TIME: ${new Date().toLocaleString()}
 
 ---
-This request has been received. Our certified Shopify partner Donald willams will review your store and provide comprehensive recommendations within 1-2 hours.`;
+This request has been received. Our certified Shopify partner Donald Williams will review your store and provide comprehensive recommendations within 1-2 hours.`;
 
             // Redirect based on selected channel
             setTimeout(() => {
                 switch(selectedChannel) {
                     case 'whatsapp':
-    const phoneNumber = "17016597726"; // cleaned format
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
-    break;
+                        const phoneNumber = "17016597726"; // cleaned format
+                        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+                        break;
                     case 'telegram':
                         window.open(`https://t.me/timeless_digitalz?text=${encodeURIComponent(message)}`, '_blank');
                         break;
