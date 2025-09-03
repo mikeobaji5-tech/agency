@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Partner Agency | Merchant Growth Gateway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.5;
+            color: #202223;
+            background: #f6f6f7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Clean and minimal like Shopify admin */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e1e3e5;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #00848e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "🛍️";
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #6d7175;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00848e;
+        }
+
+        .contact-button {
+            background: #00848e;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .contact-button:hover {
+            background: #026c75;
+        }
+
+        /* Main content area */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        /* Hero section - More dashboard-like */
+        .hero-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e3e5;
+        }
+
+        .hero-header {
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #6d7175;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .status-banner {
+            background: #fff4e6;
+            border: 1px solid #ffa726;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-banner::before {
+            content: "⚠️";
+            font-size: 16px;
+        }
+
+        .status-text {
+            font-size: 14px;
+            color: #bf6a02;
+            font-weight: 500;
+        }
+
+        /* Partner info section */
+        .partner-info {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .partner-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid #e1e3e5;
+        }
+
+        .partner-details h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 12px;
+        }
+
+        .partner-description {
+            font-size: 14px;
+            color: #6d7175;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .partner-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: #e8f5e8;
+            color: #00632b;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .security-note {
+            background: #f0f9ff;
+            border: 1px solid #38bdf8;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 13px;
+            color: #0369a1;
+            margin-top: 16px;
+        }
+
+        /* Results section - Data card style */
+        .results-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 20px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e1e3e5;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .result-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid #e1e3e5;
+        }
+
+        .result-content {
+            padding: 20px;
+        }
+
+        .result-metric {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00848e;
+            margin-bottom: 4px;
+        }
+
+        .result-description {
+            font-size: 14px;
+            color: #6d7175;
+            line-height: 1.5;
+        }
+
+        /* Services section */
+        .services-section {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e3e5;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .services-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f1f2;
+            font-size: 15px;
+            color: #202223;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+
+        .services-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00848e;
+            font-weight: bold;
+        }
+
+        .services-list li:hover {
+            background: #f9f9fa;
+            margin: 0 -16px;
+            padding-left: 40px;
+            padding-right: 16px;
+            border-radius: 6px;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e3e5;
+            margin-bottom: 32px;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 12px;
+        }
+
+        .cta-description {
+            font-size: 15px;
+            color: #6d7175;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            background: #00848e;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .primary-button:hover {
+            background: #026c75;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: #6d7175;
+            padding: 12px 20px;
+            border: 1px solid #c9cccf;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .secondary-button:hover {
+            background: #f9f9fa;
+            color: #202223;
+        }
+
+        .guarantee-text {
+            font-size: 13px;
+            color: #8c9196;
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #e1e3e5;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #6d7175;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #00848e;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e1e3e5;
+            margin-top: 32px;
+            padding-top: 20px;
+            text-align: center;
+            color: #8c9196;
+            font-size: 13px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .partner-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .partner-avatar {
+                justify-self: center;
+            }
+
+            .hero-section,
+            .services-section,
+            .cta-section {
+                padding: 24px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Subtle animations */
+        .result-card,
+        .services-list li {
+            transition: all 0.2s ease;
+        }
+
+        /* Loading state for images */
+        .result-image {
+            background: #f1f1f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Shopify Partner Gateway</div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#results">Case Studies</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Support</a></li>
+                </ul>
+                <a href="#contact" class="contact-button">Connect with Partner</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="hero-section">
+                <div class="hero-header">
+                    <h1 class="hero-title">Complete Shopify Store Growth & Compliance Review</h1>
+                    <p class="hero-subtitle">We provide a complete compliance audit, conversion optimization review, and tailored growth strategy for your store. Technical fixes, marketing guidance, and certified developer referrals — all aimed at boosting sales and securing your merchant account.</p>
+                </div>
+
+                <div class="status-banner">
+                    <span class="status-text">Priority Notice: Delayed response may impact store compliance status. Connect with your assigned partner to resolve.</span>
+                </div>
+
+                <div class="partner-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Partner Advisor" class="partner-avatar">
+                    <div class="partner-details">
+                        <h3>Your Shopify Growth Partner</h3>
+                        <p class="partner-description">Your assigned partner will begin with a comprehensive merchant-style compliance audit covering store policies, technical setup, security headers, and SEO visibility. If technical implementations are required, you'll be connected with our certified developer network for immediate resolution.</p>
+                        
+                        <div class="partner-badges">
+                            <span class="badge">Certified Plus Partner</span>
+                            <span class="badge">150+ Stores Scaled</span>
+                            <span class="badge">48hr Response</span>
+                        </div>
+                        
+                        <div class="security-note">
+                            🔒 All merchant conversations are encrypted and handled under Shopify Partner Program best practices and compliance standards.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h2 class="section-title">Recent Merchant Success Stories</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Conversion improvement chart" class="result-image">
+                        <div class="result-content">
+                            <div class="result-metric">+30% conversion</div>
+                            <div class="result-description">Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks for a wellness brand.</div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="SEO growth analytics" class="result-image">
+                        <div class="result-content">
+                            <div class="result-metric">+45% organic traffic</div>
+                            <div class="result-description">SEO audit + metadata improvements increased organic visits by 45% in 60 days for home goods store.</div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=200&fit=crop" alt="Revenue growth dashboard" class="result-image">
+                        <div class="result-content">
+                            <div class="result-metric">+40% revenue</div>
+                            <div class="result-description">CRO & ad funnel optimization scaled revenue 40% quarter-over-quarter for fashion merchant.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-section">
+                <h2 class="section-title">Comprehensive Store Growth Services</h2>
+                <p style="color: #6d7175; font-size: 14px; margin-bottom: 8px;">Our certified partner network provides end-to-end merchant support:</p>
+                
+                <ul class="services-list">
+                    <li>Store compliance audit & policy review</li>
+                    <li>Technical SEO optimization & site speed improvements</li>
+                    <li>Conversion rate optimization & A/B testing</li>
+                    <li>Shopify Plus migration & custom development</li>
+                    <li>Payment gateway optimization & fraud prevention</li>
+                    <li>Marketing automation & customer retention strategies</li>
+                    <li>App integration & workflow optimization</li>
+                    <li>Analytics setup & performance monitoring</li>
+                    <li>Security headers & GDPR compliance implementation</li>
+                    <li>24/7 merchant support & emergency response</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Scale Your Store?</h2>
+                <p class="cta-description">Connect with your assigned Shopify partner for a comprehensive store review. We'll identify growth opportunities, compliance issues, and provide actionable recommendations within 48 hours.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:partners@shopifygateway.com?subject=Store Review Request" class="primary-button">Start Store Review</a>
+                    <a href="tel:+1-844-SHOPIFY" class="secondary-button">Call Partner Line</a>
+                </div>
+                
+                <p class="guarantee-text">No upfront fees • Pay only for implemented solutions • 90-day growth guarantee</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Partner Services</h4>
+                    <ul>
+                        <li><a href="#audit">Store Compliance Audit</a></li>
+                        <li><a href="#development">Custom Development</a></li>
+                        <li><a href="#optimization">Conversion Optimization</a></li>
+                        <li><a href="#migration">Plus Migration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Merchant Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#contact">Contact Partner</a></li>
+                        <li><a href="#emergency">Emergency Support</a></li>
+                        <li><a href="#billing">Billing Questions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#guides">Growth Guides</a></li>
+                        <li><a href="#webinars">Partner Webinars</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#blog">Partner Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="mailto:partners@shopifygateway.com">partners@shopifygateway.com</a></li>
+                        <li><a href="tel:+1-844-SHOPIFY">(844) SHOPIFY</a></li>
+                        <li><a href="#chat">Live Chat Available</a></li>
+                        <li><a href="#hours">24/7 Emergency Line</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shopify Partner Gateway. Licensed under Shopify Partner Program. All merchant data protected under SOC 2 compliance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedChannel = null;
+        let currentTicketId = null;
+
+        // Modal functions
+        function openSupportModal() {
+            document.getElementById('supportModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSupportModal(event) {
+            if (!event || event.target === document.getElementById('supportModal')) {
+                document.getElementById('supportModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+            }
+        }
+
+        function selectChannel(channel) {
+            selectedChannel = channel;
+            
+            // Update visual selection
+            document.querySelectorAll('.channel-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.querySelector(`[data-channel="${channel}"]`).classList.add('selected');
+            
+            // Update submit button text
+            const channelNames = {
+                'whatsapp': 'WhatsApp',
+                'telegram': 'Telegram',
+                'gmail': 'Email'
+            };
+            document.getElementById('submitBtn').textContent = `Connect via ${channelNames[channel]}`;
+        }
+
+        function generateTicketId() {
+            const timestamp = Date.now().toString(36);
+            const random = Math.random().toString(36).substr(2, 5);
+            return `TC-${timestamp}-${random}`.toUpperCase();
+        }
+
+        function submitSupportRequest(event) {
+            event.preventDefault();
+            
+            if (!selectedChannel) {
+                alert('Please select a support channel first.');
+                return;
+            }
+
+            const formData = new FormData(event.target);
+            const data = {
+                ticketId: generateTicketId(),
+                channel: selectedChannel,
+                storeUrl: formData.get('storeUrl'),
+                email: formData.get('email'),
+                issue: formData.get('issue'),
+                notes: formData.get('notes') || 'No additional details provided'
+            };
+
+            currentTicketId = data.ticketId;
+            
+            // Show ticket info
+            document.getElementById('ticketId').textContent = data.ticketId;
+            document.getElementById('ticketInfo').style.display = 'block';
+            
+            // Create message content
+            const message = createSupportMessage(data);
+            
+            // Open appropriate channel
+            openSupportChannel(selectedChannel, message);
+        }
+
+        function createSupportMessage(data) {
+            const issueLabels = {
+                'compliance': 'Store Compliance & Policies',
+                'seo': 'SEO & Visibility Issues', 
+                'payment': 'Payment & Checkout Problems',
+                'performance': 'Site Speed & Performance',
+                'conversion': 'Conversion Rate Optimization',
+                'migration': 'Store Migration & Setup',
+                'other': 'Other Technical Issues'
+            };
+
+            return `🎫 TIMELESS CONCEPTZ SUPPORT REQUEST
+
+Ticket ID: ${data.ticketId}
+Channel: ${data.channel.toUpperCase()}
+
+📋 CLIENT DETAILS:
+• Store URL: ${data.storeUrl}
+• Email: ${data.email}
+• Primary Issue: ${issueLabels[data.issue] || data.issue}
+
+📝 ADDITIONAL NOTES:
+${data.notes}
+
+⏰ Submitted: ${new Date().toLocaleString()}
+
+---
+This request was submitted through Timeless Conceptz Partner Gateway. Expected response time: 24-48 hours.`;
+        }
+
+        function openSupportChannel(channel, message) {
+            const encodedMessage = encodeURIComponent(message);
+            
+            switch(channel) {
+                case 'whatsapp':
+                    window.open(`https://wa.me/1234567890?text=${encodedMessage}`, '_blank');
+                    break;
+                case 'telegram':
+                    window.open(`https://t.me/timelessconceptz?text=${encodedMessage}`, '_blank');
+                    break;
+                case 'gmail':
+                    const subject = encodeURIComponent(`Support Request - Ticket ${currentTicketId}`);
+                    window.open(`mailto:support@timelessconceptz.com?subject=${subject}&body=${encodedMessage}`, '_blank');
+                    break;
+            }
+            
+            // Close modal after opening channel
+            setTimeout(() => {
+                closeSupportModal();
+            }, 1000);
+        }
+
+        function resetForm() {
+            selectedChannel = null;
+            currentTicketId = null;
+            document.querySelectorAll('.channel-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('submitBtn').textContent = 'Connect via Selected Channel';
+            document.getElementById('ticketInfo').style.display = 'none';
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle hover effects
+        document.querySelectorAll('.result-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simulate loading state for images
+        document.querySelectorAll('.result-image').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            
+            img.addEventListener('error', function() {
+                this.style.background = '#f1f1f2';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.innerHTML = '<span style="color: #8c9196;">📊</span>';
+            });
+        });
+
+        // Add click tracking for CTA buttons (placeholder)
+        document.querySelectorAll('.primary-button, .secondary-button').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('CTA clicked:', this.textContent);
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSupportModal();
+            }
+        });
+    </script>
+</body>
+</html>
