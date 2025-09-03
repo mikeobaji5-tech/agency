@@ -62,7 +62,7 @@
         }
 
         .preloader-logo::before {
-            content: "🌀";
+            content: "";
             font-size: 52px;
             animation: pulse 2s infinite;
         }
@@ -175,7 +175,7 @@
         }
 
         .logo::before {
-            content: "🌀";
+            content: "";
             font-size: 24px;
         }
 
@@ -1070,12 +1070,12 @@
                 <form class="support-form" onsubmit="submitSupportRequest(event)">
                     <div class="form-group">
                         <label class="form-label">Store URL *</label>
-                        <input type="url" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com" required>
+                        <input type="url" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Email Address *</label>
-                        <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
+                        <input type="email" class="form-input" name="email" placeholder="your@email.com">
                     </div>
 
                     <div class="form-group">
@@ -1088,7 +1088,7 @@
                             <option value="migration">Shopify Plus Migration</option>
                             <option value="development">Custom Development</option>
                             <option value="marketing">Marketing & Growth Strategy</option>
-                            <option value="other">Other Technical Support</option>
+                            <option value="other">Others</option>
                         </select>
                     </div>
 
@@ -1203,7 +1203,7 @@
         function generateTicketId() {
             const timestamp = Date.now();
             const random = Math.floor(Math.random() * 1000);
-            return `TC-${timestamp}-${random}`;
+            return `SX-${random}`;
         }
 
         function submitSupportRequest(event) {
@@ -1224,18 +1224,18 @@
             // Prepare message
             const message = `🎫 SUPPORT TICKET: ${ticketId}
             
-🏪 STORE DETAILS:
+ STORE DETAILS:
 • Store URL: ${formData.get('storeUrl')}
 • Contact Email: ${formData.get('email')}
 • Issue Type: ${formData.get('issueType')}
 
-📝 ADDITIONAL DETAILS:
+ ADDITIONAL DETAILS:
 ${formData.get('details') || 'No additional details provided'}
 
-⏰ REQUEST TIME: ${new Date().toLocaleString()}
+ REQUEST TIME: ${new Date().toLocaleString()}
 
 ---
-This request was generated through Timeless Conceptz Partner Gateway. Our certified Shopify partner Donald willams will review your store and provide comprehensive recommendations within 24-48 hours.`;
+This request has been received. Our certified Shopify partner Donald willams will review your store and provide comprehensive recommendations within 1-2 hours.`;
 
             // Redirect based on selected channel
             setTimeout(() => {
