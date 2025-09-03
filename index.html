@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeless Conceptz | Shopify Partner Agency | Merchant Growth Gateway</title>
+    <title>Timeless Conceptz | Shopify Partner Gateway</title>
     <style>
         * {
             margin: 0;
@@ -22,6 +22,131 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Preloader Styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .preloader-logo {
+            font-size: 48px;
+            font-weight: 700;
+            color: #00848e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .preloader-logo::before {
+            content: "⏰";
+            font-size: 52px;
+            animation: pulse 2s infinite;
+        }
+
+        .preloader-tagline {
+            font-size: 16px;
+            color: #6d7175;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .preloader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e1e3e5;
+            border-top: 3px solid #00848e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .preloader-progress {
+            width: 200px;
+            height: 4px;
+            background: #e1e3e5;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .preloader-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00848e, #026c75);
+            border-radius: 2px;
+            width: 0%;
+            animation: progress 3s ease-out forwards;
+        }
+
+        .preloader-status {
+            font-size: 14px;
+            color: #8c9196;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            20% { width: 15%; }
+            40% { width: 35%; }
+            60% { width: 55%; }
+            80% { width: 80%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main content initially hidden */
+        .main-wrapper {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .main-wrapper.loaded {
+            opacity: 1;
         }
 
         /* Header - Clean and minimal like Shopify admin */
@@ -154,7 +279,7 @@
             margin-bottom: 40px;
         }
 
-        .partner-avatar-container {
+        .partner-avatar-wrapper {
             position: relative;
         }
 
@@ -288,6 +413,7 @@
 
         .result-card:hover {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
 
         .result-image {
@@ -295,6 +421,7 @@
             height: 160px;
             object-fit: cover;
             border-bottom: 1px solid #e1e3e5;
+            background: #f1f1f2;
         }
 
         .result-content {
@@ -336,6 +463,7 @@
             color: #202223;
             position: relative;
             padding-left: 24px;
+            transition: all 0.2s ease;
         }
 
         .services-list li:last-child {
@@ -695,7 +823,7 @@
                 text-align: center;
             }
 
-            .partner-avatar-container {
+            .partner-avatar-wrapper {
                 justify-self: center;
             }
 
@@ -717,226 +845,429 @@
                 flex-direction: column;
                 align-items: center;
             }
-        }
 
-        /* Subtle animations */
-        .result-card,
-        .services-list li {
-            transition: all 0.2s ease;
-        }
+            .preloader-logo {
+                font-size: 36px;
+            }
 
-        /* Loading state for images */
-        .result-image {
-            background: #f1f1f2;
+            .preloader-logo::before {
+                font-size: 40px;
+            }
+
+            .preloader-tagline {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Timeless Conceptz</div>
+            <div class="preloader-tagline">Professional Shopify Partner Gateway</div>
+            <div class="preloader-spinner"></div>
+            <div class="preloader-progress">
+                <div class="preloader-progress-bar"></div>
+            </div>
+            <div class="preloader-status" id="preloader-status">Loading partner dashboard...</div>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div class="main-wrapper" id="mainWrapper">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">Timeless Conceptz</div>
+                    <ul class="nav-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#results">Case Studies</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Support</a></li>
+                    </ul>
+                    <button onclick="openSupportModal()" class="contact-button">Connect with Partner</button>
+                </div>
+            </div>
+        </header>
+
         <div class="container">
-            <div class="header-content">
-                <div class="logo">Timeless Conceptz</div>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#results">Case Studies</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#contact">Support</a></li>
-                </ul>
-                <button onclick="openSupportModal()" class="contact-button">Connect with Partner</button>
+            <div class="main-content">
+                <div class="hero-section">
+                    <div class="hero-header">
+                        <h1 class="hero-title">Complete Shopify Store Growth & Compliance Review</h1>
+                        <p class="hero-subtitle">We provide a complete compliance audit, conversion optimization review, and tailored growth strategy for your store. Technical fixes, marketing guidance, and certified developer referrals — all aimed at boosting sales and securing your merchant account.</p>
+                    </div>
+
+                    <div class="status-banner">
+                        <span class="status-text">Priority Notice: Delayed response may impact store compliance status. Connect with your assigned partner to resolve.</span>
+                    </div>
+
+                    <div class="partner-info">
+                        <div class="partner-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Dennis Fiore" class="partner-avatar">
+                            <div class="verified-badge">✓</div>
+                        </div>
+                        <div class="partner-details">
+                            <div class="partner-header">
+                                <h3>Dennis Fiore</h3>
+                            </div>
+                            <p class="partner-description">Certified Shopify Plus partner specializing in store migrations, performance optimization, and conversion rate improvements. Over 5 years helping merchants scale their businesses with technical expertise and growth strategies.</p>
+                            
+                            <div class="partner-badges">
+                                <span class="badge">Shopify Plus Partner</span>
+                                <span class="badge">150+ Projects</span>
+                                <span class="badge">24hr Response</span>
+                            </div>
+
+                            <div class="certifications">
+                                <h4>Certifications & Expertise</h4>
+                                <ul class="cert-list">
+                                    <li>Shopify Plus Certified Developer</li>
+                                    <li>Google Analytics 4 Certified</li>
+                                    <li>Facebook Blueprint Certified</li>
+                                    <li>Conversion Rate Optimization Specialist</li>
+                                    <li>Technical SEO Expert</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="security-note">
+                                🔒 All merchant conversations are encrypted and handled under Shopify Partner Program best practices and compliance standards.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <h2 class="section-title">Recent Merchant Success Stories</h2>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Conversion improvement chart" class="result-image">
+                            <div class="result-content">
+                                <div class="result-metric">+30% conversion</div>
+                                <div class="result-description">Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks for a wellness brand.</div>
+                            </div>
+                        </div>
+
+                        <div class="result-card">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="SEO growth analytics" class="result-image">
+                            <div class="result-content">
+                                <div class="result-metric">+45% organic traffic</div>
+                                <div class="result-description">SEO audit + metadata improvements increased organic visits by 45% in 60 days for home goods store.</div>
+                            </div>
+                        </div>
+
+                        <div class="result-card">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=200&fit=crop" alt="Revenue growth dashboard" class="result-image">
+                            <div class="result-content">
+                                <div class="result-metric">+40% revenue</div>
+                                <div class="result-description">CRO & ad funnel optimization scaled revenue 40% quarter-over-quarter for fashion merchant.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-section">
+                    <h2 class="section-title">Comprehensive Store Growth Services</h2>
+                    <p style="color: #6d7175; font-size: 14px; margin-bottom: 8px;">Our certified partner network provides end-to-end merchant support:</p>
+                    
+                    <ul class="services-list">
+                        <li>Store compliance audit & policy review</li>
+                        <li>Technical SEO optimization & site speed improvements</li>
+                        <li>Conversion rate optimization & A/B testing</li>
+                        <li>Shopify Plus migration & custom development</li>
+                        <li>Payment gateway optimization & fraud prevention</li>
+                        <li>Marketing automation & customer retention strategies</li>
+                        <li>App integration & workflow optimization</li>
+                        <li>Analytics setup & performance monitoring</li>
+                        <li>Security headers & GDPR compliance implementation</li>
+                        <li>24/7 merchant support & emergency response</li>
+                    </ul>
+                </div>
+
+                <div class="cta-section">
+                    <h2 class="cta-title">Ready to Scale Your Store?</h2>
+                    <p class="cta-description">Connect with your assigned Shopify partner for a comprehensive store review. We'll identify growth opportunities, compliance issues, and provide actionable recommendations within 48 hours.</p>
+                    
+                    <div class="cta-buttons">
+                        <button onclick="openSupportModal()" class="primary-button">Start Store Review</button>
+                        <a href="tel:+1-844-SHOPIFY" class="secondary-button">Call Partner Line</a>
+                    </div>
+                    
+                    <p class="guarantee-text">No upfront fees • Pay only for implemented solutions • 90-day growth guarantee</p>
+                </div>
             </div>
         </div>
-    </header>
 
-    <div class="container">
-        <div class="main-content">
-            <div class="hero-section">
-                <div class="hero-header">
-                    <h1 class="hero-title">Complete Shopify Store Growth & Compliance Review</h1>
-                    <p class="hero-subtitle">We provide a complete compliance audit, conversion optimization review, and tailored growth strategy for your store. Technical fixes, marketing guidance, and certified developer referrals — all aimed at boosting sales and securing your merchant account.</p>
-                </div>
-
-                <div class="status-banner">
-                    <span class="status-text">Priority Notice: Delayed response may impact store compliance status. Connect with your assigned partner to resolve.</span>
-                </div>
-
-                <div class="partner-info">
-                    <div class="partner-avatar-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Dennis Fiore - Partner Advisor" class="partner-avatar">
-                        <div class="verified-badge">✓</div>
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Partner Services</h4>
+                        <ul>
+                            <li><a href="#audit">Store Compliance Audit</a></li>
+                            <li><a href="#development">Custom Development</a></li>
+                            <li><a href="#optimization">Conversion Optimization</a></li>
+                            <li><a href="#migration">Plus Migration</a></li>
+                        </ul>
                     </div>
-                    <div class="partner-details">
-                        <div class="partner-header">
-                            <h3>Dennis Fiore</h3>
-                        </div>
-                        <p class="partner-description">Certified Shopify Plus partner specializing in store migrations, performance optimization, and conversion rate improvements. Over 5 years helping merchants scale their businesses with technical expertise and growth strategies.</p>
-                        
-                        <div class="partner-badges">
-                            <span class="badge">Shopify Plus Partner</span>
-                            <span class="badge">150+ Projects</span>
-                            <span class="badge">24hr Response</span>
-                        </div>
-
-                        <div class="certifications">
-                            <h4>Certifications & Expertise</h4>
-                            <ul class="cert-list">
-                                <li>Shopify Plus Certified Developer</li>
-                                <li>Google Analytics 4 Certified</li>
-                                <li>Facebook Blueprint Certified</li>
-                                <li>Conversion Rate Optimization Specialist</li>
-                                <li>Technical SEO Expert</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="security-note">
-                            🔒 All merchant conversations are encrypted and handled under Shopify Partner Program best practices and compliance standards.
-                        </div>
+                    
+                    <div class="footer-section">
+                        <h4>Merchant Support</h4>
+                        <ul>
+                            <li><a href="#help">Help Center</a></li>
+                            <li><a href="#contact">Contact Partner</a></li>
+                            <li><a href="#emergency">Emergency Support</a></li>
+                            <li><a href="#billing">Billing Questions</a></li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-
-            <div class="results-section">
-                <h2 class="section-title">Recent Merchant Success Stories</h2>
-                <div class="results-grid">
-                    <div class="result-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Conversion improvement chart" class="result-image">
-                        <div class="result-content">
-                            <div class="result-metric">+30% conversion</div>
-                            <div class="result-description">Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks for a wellness brand.</div>
-                        </div>
+                    
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#guides">Growth Guides</a></li>
+                            <li><a href="#webinars">Partner Webinars</a></li>
+                            <li><a href="#case-studies">Case Studies</a></li>
+                            <li><a href="#blog">Partner Blog</a></li>
+                        </ul>
                     </div>
-
-                    <div class="result-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="SEO growth analytics" class="result-image">
-                        <div class="result-content">
-                            <div class="result-metric">+45% organic traffic</div>
-                            <div class="result-description">SEO audit + metadata improvements increased organic visits by 45% in 60 days for home goods store.</div>
-                        </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li><a href="mailto:partners@timelessconceptz.com">partners@timelessconceptz.com</a></li>
+                            <li><a href="tel:+1-844-SHOPIFY">(844) SHOPIFY</a></li>
+                            <li><a href="#chat">Live Chat Available</a></li>
+                            <li><a href="#hours">24/7 Emergency Line</a></li>
+                        </ul>
                     </div>
-
-                    <div class="result-card">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=200&fit=crop" alt="Revenue growth dashboard" class="result-image">
-                        <div class="result-content">
-                            <div class="result-metric">+40% revenue</div>
-                            <div class="result-description">CRO & ad funnel optimization scaled revenue 40% quarter-over-quarter for fashion merchant.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-section">
-                <h2 class="section-title">Comprehensive Store Growth Services</h2>
-                <p style="color: #6d7175; font-size: 14px; margin-bottom: 8px;">Our certified partner network provides end-to-end merchant support:</p>
-                
-                <ul class="services-list">
-                    <li>Store compliance audit & policy review</li>
-                    <li>Technical SEO optimization & site speed improvements</li>
-                    <li>Conversion rate optimization & A/B testing</li>
-                    <li>Shopify Plus migration & custom development</li>
-                    <li>Payment gateway optimization & fraud prevention</li>
-                    <li>Marketing automation & customer retention strategies</li>
-                    <li>App integration & workflow optimization</li>
-                    <li>Analytics setup & performance monitoring</li>
-                    <li>Security headers & GDPR compliance implementation</li>
-                    <li>24/7 merchant support & emergency response</li>
-                </ul>
-            </div>
-
-            <div class="cta-section">
-                <h2 class="cta-title">Ready to Scale Your Store?</h2>
-                <p class="cta-description">Connect with your assigned Shopify partner for a comprehensive store review. We'll identify growth opportunities, compliance issues, and provide actionable recommendations within 48 hours.</p>
-                
-                <div class="cta-buttons">
-                    <button onclick="openSupportModal()" class="primary-button">Start Store Review</button>
-                    <a href="tel:+1-844-SHOPIFY" class="secondary-button">Call Partner Line</a>
                 </div>
                 
-                <p class="guarantee-text">No upfront fees • Pay only for implemented solutions • 90-day growth guarantee</p>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Timeless Conceptz. Licensed under Shopify Partner Program. All merchant data protected under SOC 2 compliance.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Support Modal -->
+        <div id="supportModal" class="modal-overlay" onclick="closeSupportModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <button class="close-button" onclick="closeSupportModal()">&times;</button>
+                    <h3 class="modal-title">Connect with Partner Support</h3>
+                    <p class="modal-subtitle">Choose your preferred support channel and describe your store needs</p>
+                </div>
+
+                <div class="support-channels">
+                    <div class="channels-title">Select Support Channel</div>
+                    <div class="channel-grid">
+                        <div class="channel-option" data-channel="whatsapp" onclick="selectChannel('whatsapp')">
+                            <div class="channel-icon">💬</div>
+                            <div class="channel-name">WhatsApp</div>
+                        </div>
+                        <div class="channel-option" data-channel="telegram" onclick="selectChannel('telegram')">
+                            <div class="channel-icon">✈️</div>
+                            <div class="channel-name">Telegram</div>
+                        </div>
+                        <div class="channel-option" data-channel="gmail" onclick="selectChannel('gmail')">
+                            <div class="channel-icon">✉️</div>
+                            <div class="channel-name">Email</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="support-form" onsubmit="submitSupportRequest(event)">
+                    <div class="form-group">
+                        <label class="form-label">Store URL *</label>
+                        <input type="url" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Issue Type</label>
+                        <select class="form-select" name="issueType">
+                            <option value="compliance">Store Compliance Review</option>
+                            <option value="seo">SEO & Performance Audit</option>
+                            <option value="conversion">Conversion Rate Optimization</option>
+                            <option value="payment">Payment Gateway Issues</option>
+                            <option value="migration">Shopify Plus Migration</option>
+                            <option value="development">Custom Development</option>
+                            <option value="marketing">Marketing & Growth Strategy</option>
+                            <option value="other">Other Technical Support</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Additional Details</label>
+                        <textarea class="form-textarea" name="details" placeholder="Please describe your store's current challenges, goals, or specific issues you'd like our partner to address..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button" id="submitBtn">Connect via Selected Channel</button>
+
+                    <div class="ticket-info" id="ticketInfo" style="display: none;">
+                        Your support ticket <strong id="ticketId"></strong> has been created and you'll be redirected to your selected support channel with all details pre-filled.
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Partner Services</h4>
-                    <ul>
-                        <li><a href="#audit">Store Compliance Audit</a></li>
-                        <li><a href="#development">Custom Development</a></li>
-                        <li><a href="#optimization">Conversion Optimization</a></li>
-                        <li><a href="#migration">Plus Migration</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Merchant Support</h4>
-                    <ul>
-                        <li><a href="#help">Help Center</a></li>
-                        <li><a href="#contact">Contact Partner</a></li>
-                        <li><a href="#emergency">Emergency Support</a></li>
-                        <li><a href="#billing">Billing Questions</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#guides">Growth Guides</a></li>
-                        <li><a href="#webinars">Partner Webinars</a></li>
-                        <li><a href="#case-studies">Case Studies</a></li>
-                        <li><a href="#blog">Partner Blog</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><a href="mailto:support@timelessconceptz.com">support@timelessconceptz.com</a></li>
-                        <li><a href="tel:+1-844-SHOPIFY">(844) SHOPIFY</a></li>
-                        <li><a href="#chat">Live Chat Available</a></li>
-                        <li><a href="#hours">24/7 Emergency Line</a></li>
-                    </ul>
-                </div>
-            </div>
+    <script>
+        // Preloader functionality
+        let selectedChannel = null;
+
+        // Preloader status messages
+        const statusMessages = [
+            'Loading partner dashboard...',
+            'Initializing secure connection...',
+            'Verifying partner credentials...',
+            'Loading merchant portal...',
+            'Ready to connect!'
+        ];
+
+        let currentMessage = 0;
+
+        // Update preloader status text
+        function updatePreloaderStatus() {
+            const statusElement = document.getElementById('preloader-status');
+            if (statusElement && currentMessage < statusMessages.length - 1) {
+                setTimeout(() => {
+                    currentMessage++;
+                    statusElement.textContent = statusMessages[currentMessage];
+                    updatePreloaderStatus();
+                }, 600);
+            }
+        }
+
+        // Start preloader
+        window.addEventListener('load', function() {
+            updatePreloaderStatus();
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 Timeless Conceptz. Licensed under Shopify Partner Program. All merchant data protected under SOC 2 compliance.</p>
-            </div>
-        </div>
-    </footer>
+            // Hide preloader after 3.2 seconds (matching progress animation)
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hidden');
+                document.getElementById('mainWrapper').classList.add('loaded');
+            }, 3200);
+        });
 
-    <!-- Support Modal -->
-    <div id="supportModal" class="modal-overlay" onclick="closeSupportModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <button class="close-button" onclick="closeSupportModal()">&times;</button>
-                <h3 class="modal-title">Connect with Partner Support</h3>
-                <p class="modal-subtitle">Choose your preferred support channel and describe your store needs</p>
-            </div>
+        // Support Modal Functions
+        function openSupportModal() {
+            document.getElementById('supportModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-            <div class="support-channels">
-                <div class="channels-title">Select Support Channel</div>
-                <div class="channel-grid">
-                    <div class="channel-option" data-channel="whatsapp" onclick="selectChannel('whatsapp')">
-                        <div class="channel-icon">💬</div>
-                        <div class="channel-name">WhatsApp</div>
-                    </div>
-                    <div class="channel-option" data-channel="telegram" onclick="selectChannel('telegram')">
-                        <div class="channel-icon">✈️</div>
-                        <div class="channel-name">Telegram</div>
-                    </div>
-                    <div class="channel-option" data-channel="gmail" onclick="selectChannel('gmail')">
-                        <div class="channel-icon">✉️</div>
-                        <div class="channel-name">Email</div>
-                    </div>
-                </div>
-            </div>
+        function closeSupportModal(event) {
+            if (!event || event.target === event.currentTarget) {
+                document.getElementById('supportModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // Reset form
+                document.querySelector('.support-form').reset();
+                selectedChannel = null;
+                
+                // Clear channel selections
+                document.querySelectorAll('.channel-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Reset button text
+                document.getElementById('submitBtn').textContent = 'Connect via Selected Channel';
+                
+                // Hide ticket info
+                document.getElementById('ticketInfo').style.display = 'none';
+            }
+        }
 
-            <form class="support-form" onsubmit="submitSupportRequest(event)">
-                <div class="form-group">
-                    <label class="form-label">Store URL *</label>
-                    <input type="url" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com" required>
-                </div>
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSupportModal(event);
+            }
+        });
 
-                <div class="form-group">
-                    <label class="form-label">Email Address
+        function selectChannel(channel) {
+            selectedChannel = channel;
+            
+            // Update visual selection
+            document.querySelectorAll('.channel-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            document.querySelector(`[data-channel="${channel}"]`).classList.add('selected');
+            
+            // Update button text
+            const channelNames = {
+                whatsapp: 'Connect via WhatsApp',
+                telegram: 'Connect via Telegram', 
+                gmail: 'Connect via Email'
+            };
+            
+            document.getElementById('submitBtn').textContent = channelNames[channel];
+        }
+
+        function generateTicketId() {
+            const timestamp = Date.now();
+            const random = Math.floor(Math.random() * 1000);
+            return `TC-${timestamp}-${random}`;
+        }
+
+        function submitSupportRequest(event) {
+            event.preventDefault();
+            
+            if (!selectedChannel) {
+                alert('Please select a support channel (WhatsApp, Telegram, or Email)');
+                return;
+            }
+            
+            const formData = new FormData(event.target);
+            const ticketId = generateTicketId();
+            
+            // Show ticket info
+            document.getElementById('ticketId').textContent = ticketId;
+            document.getElementById('ticketInfo').style.display = 'block';
+            
+            // Prepare message
+            const message = `🎫 SUPPORT TICKET: ${ticketId}
+            
+🏪 STORE DETAILS:
+• Store URL: ${formData.get('storeUrl')}
+• Contact Email: ${formData.get('email')}
+• Issue Type: ${formData.get('issueType')}
+
+📝 ADDITIONAL DETAILS:
+${formData.get('details') || 'No additional details provided'}
+
+⏰ REQUEST TIME: ${new Date().toLocaleString()}
+
+---
+This request was generated through Timeless Conceptz Partner Gateway. Our certified Shopify partner Dennis Fiore will review your store and provide comprehensive recommendations within 24-48 hours.`;
+
+            // Redirect based on selected channel
+            setTimeout(() => {
+                switch(selectedChannel) {
+                    case 'whatsapp':
+                        window.open(`https://wa.me/+2349069506945?text=${encodeURIComponent(message)}`, '_blank');
+                        break;
+                    case 'telegram':
+                        window.open(`https://t.me/timelessconceptz?text=${encodeURIComponent(message)}`, '_blank');
+                        break;
+                    case 'gmail':
+                        const subject = `Support Request: ${ticketId} - ${formData.get('issueType')}`;
+                        window.open(`mailto:partners@timelessconceptz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, '_blank');
+                        break;
+                }
+                
+                // Close modal after sending
+                setTimeout(() => {
+                    closeSupportModal();
+                }, 1000);
+                
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
