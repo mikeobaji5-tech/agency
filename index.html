@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopify Partner Agency | Merchant Growth Gateway</title>
+    <title>Timeless Conceptz | Shopify Partner Agency | Merchant Growth Gateway</title>
     <style>
         * {
             margin: 0;
@@ -50,7 +50,7 @@
         }
 
         .logo::before {
-            content: "🛍️";
+            content: "⏰";
             font-size: 24px;
         }
 
@@ -148,39 +148,66 @@
         /* Partner info section */
         .partner-info {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 32px;
+            grid-template-columns: 120px 1fr;
+            gap: 24px;
             align-items: start;
             margin-bottom: 40px;
         }
 
+        .partner-avatar-container {
+            position: relative;
+        }
+
         .partner-avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 12px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 1px solid #e1e3e5;
+            border: 3px solid #e1e3e5;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: #1da1f2;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            border: 2px solid white;
+        }
+
+        .partner-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         .partner-details h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: #202223;
-            margin-bottom: 12px;
+            margin: 0;
         }
 
         .partner-description {
             font-size: 14px;
             color: #6d7175;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .partner-badges {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .badge {
@@ -190,6 +217,36 @@
             border-radius: 4px;
             font-size: 12px;
             font-weight: 500;
+        }
+
+        .certifications {
+            margin-top: 16px;
+        }
+
+        .certifications h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 8px;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            font-size: 12px;
+            color: #6d7175;
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .cert-list li::before {
+            content: "🏆";
+            position: absolute;
+            left: 0;
+            font-size: 10px;
         }
 
         .security-note {
@@ -426,6 +483,206 @@
             font-size: 13px;
         }
 
+        /* Support Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            padding: 24px 24px 0;
+            border-bottom: 1px solid #e1e3e5;
+            margin-bottom: 0;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            font-size: 13px;
+            color: #6d7175;
+            margin-bottom: 20px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #8c9196;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .close-button:hover {
+            background: #f1f1f2;
+            color: #202223;
+        }
+
+        .support-channels {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e1e3e5;
+        }
+
+        .channels-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #202223;
+            margin-bottom: 12px;
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .channel-option {
+            padding: 12px;
+            border: 1px solid #e1e3e5;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .channel-option:hover {
+            border-color: #00848e;
+            background: #f0fffe;
+        }
+
+        .channel-option.selected {
+            border-color: #00848e;
+            background: #e8f5f5;
+        }
+
+        .channel-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .channel-name {
+            font-size: 11px;
+            color: #6d7175;
+            font-weight: 500;
+        }
+
+        .support-form {
+            padding: 20px 24px 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #202223;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #c9cccf;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: border-color 0.2s ease;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00848e;
+            box-shadow: 0 0 0 2px rgba(0, 132, 142, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #c9cccf;
+            border-radius: 6px;
+            font-size: 13px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #c9cccf;
+            border-radius: 6px;
+            font-size: 13px;
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: #00848e;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.2s ease;
+        }
+
+        .submit-button:hover:not(:disabled) {
+            background: #026c75;
+        }
+
+        .submit-button:disabled {
+            background: #8c9196;
+            cursor: not-allowed;
+        }
+
+        .ticket-info {
+            background: #f0f9ff;
+            border: 1px solid #38bdf8;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #0369a1;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .nav-links {
@@ -438,7 +695,7 @@
                 text-align: center;
             }
 
-            .partner-avatar {
+            .partner-avatar-container {
                 justify-self: center;
             }
 
@@ -478,14 +735,14 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Shopify Partner Gateway</div>
+                <div class="logo">Timeless Conceptz</div>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#results">Case Studies</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#contact">Support</a></li>
                 </ul>
-                <a href="#contact" class="contact-button">Connect with Partner</a>
+                <button onclick="openSupportModal()" class="contact-button">Connect with Partner</button>
             </div>
         </div>
     </header>
@@ -503,15 +760,31 @@
                 </div>
 
                 <div class="partner-info">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Partner Advisor" class="partner-avatar">
+                    <div class="partner-avatar-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Dennis Fiore - Partner Advisor" class="partner-avatar">
+                        <div class="verified-badge">✓</div>
+                    </div>
                     <div class="partner-details">
-                        <h3>Your Shopify Growth Partner</h3>
-                        <p class="partner-description">Your assigned partner will begin with a comprehensive merchant-style compliance audit covering store policies, technical setup, security headers, and SEO visibility. If technical implementations are required, you'll be connected with our certified developer network for immediate resolution.</p>
+                        <div class="partner-header">
+                            <h3>Dennis Fiore</h3>
+                        </div>
+                        <p class="partner-description">Certified Shopify Plus partner specializing in store migrations, performance optimization, and conversion rate improvements. Over 5 years helping merchants scale their businesses with technical expertise and growth strategies.</p>
                         
                         <div class="partner-badges">
-                            <span class="badge">Certified Plus Partner</span>
-                            <span class="badge">150+ Stores Scaled</span>
-                            <span class="badge">48hr Response</span>
+                            <span class="badge">Shopify Plus Partner</span>
+                            <span class="badge">150+ Projects</span>
+                            <span class="badge">24hr Response</span>
+                        </div>
+
+                        <div class="certifications">
+                            <h4>Certifications & Expertise</h4>
+                            <ul class="cert-list">
+                                <li>Shopify Plus Certified Developer</li>
+                                <li>Google Analytics 4 Certified</li>
+                                <li>Facebook Blueprint Certified</li>
+                                <li>Conversion Rate Optimization Specialist</li>
+                                <li>Technical SEO Expert</li>
+                            </ul>
                         </div>
                         
                         <div class="security-note">
@@ -573,7 +846,7 @@
                 <p class="cta-description">Connect with your assigned Shopify partner for a comprehensive store review. We'll identify growth opportunities, compliance issues, and provide actionable recommendations within 48 hours.</p>
                 
                 <div class="cta-buttons">
-                    <a href="mailto:partners@shopifygateway.com?subject=Store Review Request" class="primary-button">Start Store Review</a>
+                    <button onclick="openSupportModal()" class="primary-button">Start Store Review</button>
                     <a href="tel:+1-844-SHOPIFY" class="secondary-button">Call Partner Line</a>
                 </div>
                 
@@ -618,7 +891,7 @@
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li><a href="mailto:partners@shopifygateway.com">partners@shopifygateway.com</a></li>
+                        <li><a href="mailto:support@timelessconceptz.com">support@timelessconceptz.com</a></li>
                         <li><a href="tel:+1-844-SHOPIFY">(844) SHOPIFY</a></li>
                         <li><a href="#chat">Live Chat Available</a></li>
                         <li><a href="#hours">24/7 Emergency Line</a></li>
@@ -627,199 +900,43 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Shopify Partner Gateway. Licensed under Shopify Partner Program. All merchant data protected under SOC 2 compliance.</p>
+                <p>&copy; 2025 Timeless Conceptz. Licensed under Shopify Partner Program. All merchant data protected under SOC 2 compliance.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        let selectedChannel = null;
-        let currentTicketId = null;
+    <!-- Support Modal -->
+    <div id="supportModal" class="modal-overlay" onclick="closeSupportModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <button class="close-button" onclick="closeSupportModal()">&times;</button>
+                <h3 class="modal-title">Connect with Partner Support</h3>
+                <p class="modal-subtitle">Choose your preferred support channel and describe your store needs</p>
+            </div>
 
-        // Modal functions
-        function openSupportModal() {
-            document.getElementById('supportModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+            <div class="support-channels">
+                <div class="channels-title">Select Support Channel</div>
+                <div class="channel-grid">
+                    <div class="channel-option" data-channel="whatsapp" onclick="selectChannel('whatsapp')">
+                        <div class="channel-icon">💬</div>
+                        <div class="channel-name">WhatsApp</div>
+                    </div>
+                    <div class="channel-option" data-channel="telegram" onclick="selectChannel('telegram')">
+                        <div class="channel-icon">✈️</div>
+                        <div class="channel-name">Telegram</div>
+                    </div>
+                    <div class="channel-option" data-channel="gmail" onclick="selectChannel('gmail')">
+                        <div class="channel-icon">✉️</div>
+                        <div class="channel-name">Email</div>
+                    </div>
+                </div>
+            </div>
 
-        function closeSupportModal(event) {
-            if (!event || event.target === document.getElementById('supportModal')) {
-                document.getElementById('supportModal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-                resetForm();
-            }
-        }
+            <form class="support-form" onsubmit="submitSupportRequest(event)">
+                <div class="form-group">
+                    <label class="form-label">Store URL *</label>
+                    <input type="url" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com" required>
+                </div>
 
-        function selectChannel(channel) {
-            selectedChannel = channel;
-            
-            // Update visual selection
-            document.querySelectorAll('.channel-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            document.querySelector(`[data-channel="${channel}"]`).classList.add('selected');
-            
-            // Update submit button text
-            const channelNames = {
-                'whatsapp': 'WhatsApp',
-                'telegram': 'Telegram',
-                'gmail': 'Email'
-            };
-            document.getElementById('submitBtn').textContent = `Connect via ${channelNames[channel]}`;
-        }
-
-        function generateTicketId() {
-            const timestamp = Date.now().toString(36);
-            const random = Math.random().toString(36).substr(2, 5);
-            return `TC-${timestamp}-${random}`.toUpperCase();
-        }
-
-        function submitSupportRequest(event) {
-            event.preventDefault();
-            
-            if (!selectedChannel) {
-                alert('Please select a support channel first.');
-                return;
-            }
-
-            const formData = new FormData(event.target);
-            const data = {
-                ticketId: generateTicketId(),
-                channel: selectedChannel,
-                storeUrl: formData.get('storeUrl'),
-                email: formData.get('email'),
-                issue: formData.get('issue'),
-                notes: formData.get('notes') || 'No additional details provided'
-            };
-
-            currentTicketId = data.ticketId;
-            
-            // Show ticket info
-            document.getElementById('ticketId').textContent = data.ticketId;
-            document.getElementById('ticketInfo').style.display = 'block';
-            
-            // Create message content
-            const message = createSupportMessage(data);
-            
-            // Open appropriate channel
-            openSupportChannel(selectedChannel, message);
-        }
-
-        function createSupportMessage(data) {
-            const issueLabels = {
-                'compliance': 'Store Compliance & Policies',
-                'seo': 'SEO & Visibility Issues', 
-                'payment': 'Payment & Checkout Problems',
-                'performance': 'Site Speed & Performance',
-                'conversion': 'Conversion Rate Optimization',
-                'migration': 'Store Migration & Setup',
-                'other': 'Other Technical Issues'
-            };
-
-            return `🎫 TIMELESS CONCEPTZ SUPPORT REQUEST
-
-Ticket ID: ${data.ticketId}
-Channel: ${data.channel.toUpperCase()}
-
-📋 CLIENT DETAILS:
-• Store URL: ${data.storeUrl}
-• Email: ${data.email}
-• Primary Issue: ${issueLabels[data.issue] || data.issue}
-
-📝 ADDITIONAL NOTES:
-${data.notes}
-
-⏰ Submitted: ${new Date().toLocaleString()}
-
----
-This request was submitted through Timeless Conceptz Partner Gateway. Expected response time: 24-48 hours.`;
-        }
-
-        function openSupportChannel(channel, message) {
-            const encodedMessage = encodeURIComponent(message);
-            
-            switch(channel) {
-                case 'whatsapp':
-                    window.open(`https://wa.me/1234567890?text=${encodedMessage}`, '_blank');
-                    break;
-                case 'telegram':
-                    window.open(`https://t.me/timelessconceptz?text=${encodedMessage}`, '_blank');
-                    break;
-                case 'gmail':
-                    const subject = encodeURIComponent(`Support Request - Ticket ${currentTicketId}`);
-                    window.open(`mailto:support@timelessconceptz.com?subject=${subject}&body=${encodedMessage}`, '_blank');
-                    break;
-            }
-            
-            // Close modal after opening channel
-            setTimeout(() => {
-                closeSupportModal();
-            }, 1000);
-        }
-
-        function resetForm() {
-            selectedChannel = null;
-            currentTicketId = null;
-            document.querySelectorAll('.channel-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            document.getElementById('submitBtn').textContent = 'Connect via Selected Channel';
-            document.getElementById('ticketInfo').style.display = 'none';
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add subtle hover effects
-        document.querySelectorAll('.result-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Simulate loading state for images
-        document.querySelectorAll('.result-image').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-            
-            img.addEventListener('error', function() {
-                this.style.background = '#f1f1f2';
-                this.style.display = 'flex';
-                this.style.alignItems = 'center';
-                this.style.justifyContent = 'center';
-                this.innerHTML = '<span style="color: #8c9196;">📊</span>';
-            });
-        });
-
-        // Add click tracking for CTA buttons (placeholder)
-        document.querySelectorAll('.primary-button, .secondary-button').forEach(button => {
-            button.addEventListener('click', function() {
-                console.log('CTA clicked:', this.textContent);
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeSupportModal();
-            }
-        });
-    </script>
-</body>
-</html>
+                <div class="form-group">
+                    <label class="form-label">Email Address
