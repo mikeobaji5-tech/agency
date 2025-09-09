@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeless Conceptz | Shopify Partner Gateway</title>
+    <title>Timeless Conceptz | Premium Digital Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,27 +12,41 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-black: #000000;
+            --soft-black: #1a1a1a;
+            --premium-gold: #d4af37;
+            --electric-blue: #0066ff;
+            --deep-purple: #6366f1;
+            --warm-gray: #f8f9fa;
+            --light-gray: #e9ecef;
+            --text-gray: #6c757d;
+            --success-green: #10b981;
+            --white: #ffffff;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-            line-height: 1.5;
-            color: #202223;
-            background: #f6f6f7;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--soft-black);
+            background: var(--white);
+            font-weight: 400;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Preloader Styles */
+        /* Enhanced Preloader */
         .preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #ffffff;
+            background: linear-gradient(135deg, var(--white) 0%, var(--warm-gray) 100%);
             z-index: 10000;
             display: flex;
             align-items: center;
@@ -52,42 +67,37 @@
 
         .preloader-logo {
             font-size: 48px;
-            font-weight: 700;
-            color: #00848e;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .preloader-logo::before {
-            content: "";
-            font-size: 52px;
-            animation: pulse 2s infinite;
+            font-weight: 200;
+            color: var(--soft-black);
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--soft-black) 0%, var(--deep-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .preloader-tagline {
             font-size: 16px;
-            color: #6d7175;
-            margin-bottom: 30px;
-            font-weight: 500;
+            color: var(--text-gray);
+            margin-bottom: 48px;
+            font-weight: 300;
         }
 
         .preloader-spinner {
             width: 40px;
             height: 40px;
-            border: 3px solid #e1e3e5;
-            border-top: 3px solid #00848e;
+            border: 3px solid var(--light-gray);
+            border-top: 3px solid var(--deep-purple);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin: 0 auto 32px;
         }
 
         .preloader-progress {
-            width: 200px;
+            width: 240px;
             height: 4px;
-            background: #e1e3e5;
+            background: var(--light-gray);
             border-radius: 2px;
             overflow: hidden;
             margin: 0 auto;
@@ -96,7 +106,7 @@
 
         .preloader-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #00848e, #026c75);
+            background: linear-gradient(90deg, var(--deep-purple), var(--electric-blue));
             border-radius: 2px;
             width: 0%;
             animation: progress 3s ease-out forwards;
@@ -104,19 +114,14 @@
 
         .preloader-status {
             font-size: 14px;
-            color: #8c9196;
-            margin-top: 15px;
-            font-weight: 500;
+            color: var(--text-gray);
+            margin-top: 24px;
+            font-weight: 400;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
 
         @keyframes progress {
@@ -139,7 +144,6 @@
             }
         }
 
-        /* Main content initially hidden */
         .main-wrapper {
             opacity: 0;
             transition: opacity 0.8s ease;
@@ -149,14 +153,17 @@
             opacity: 1;
         }
 
-        /* Header - Clean and minimal like Shopify admin */
+        /* Premium Header */
         header {
-            background: #ffffff;
-            border-bottom: 1px solid #e1e3e5;
-            padding: 16px 0;
-            position: sticky;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .header-content {
@@ -166,121 +173,208 @@
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: #00848e;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo::before {
-            content: "";
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--soft-black);
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--soft-black) 0%, var(--deep-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 48px;
         }
 
         .nav-links a {
-            color: #6d7175;
+            color: var(--text-gray);
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
-            transition: color 0.2s ease;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #00848e;
+            color: var(--soft-black);
+            transform: translateY(-1px);
         }
 
-        .contact-button {
-            background: #00848e;
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--deep-purple), var(--electric-blue));
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
             color: white;
-            padding: 10px 16px;
+            padding: 14px 32px;
             border: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
             cursor: pointer;
             text-decoration: none;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-button:hover {
-            background: #026c75;
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
         }
 
-        /* Main content area */
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        /* Main content */
         .main-content {
-            padding: 40px 0;
+            padding: 120px 0 60px;
         }
 
-        /* Hero section - More dashboard-like */
+        /* Premium Hero Section */
         .hero-section {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e1e3e5;
+            background: var(--white);
+            padding: 100px 0 80px;
+            margin-bottom: 120px;
+            text-align: center;
+            position: relative;
         }
 
-        .hero-header {
-            margin-bottom: 24px;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-title {
-            font-size: 32px;
-            font-weight: 600;
-            color: #202223;
-            margin-bottom: 12px;
-            line-height: 1.3;
+            font-size: 72px;
+            font-weight: 200;
+            color: var(--soft-black);
+            margin-bottom: 32px;
+            line-height: 1.1;
+            letter-spacing: -3px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 16px;
-            color: #6d7175;
-            margin-bottom: 24px;
-            max-width: 600px;
+            font-size: 22px;
+            color: var(--text-gray);
+            margin-bottom: 56px;
+            font-weight: 300;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
         }
 
         .status-banner {
-            background: #fff4e6;
-            border: 1px solid #ffa726;
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin-bottom: 32px;
-            display: flex;
+            background: linear-gradient(135deg, var(--warm-gray) 0%, rgba(99, 102, 241, 0.05) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 24px 40px;
+            margin: 56px auto;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .status-banner::before {
-            content: "⚠️";
+            gap: 16px;
             font-size: 16px;
-        }
-
-        .status-text {
-            font-size: 14px;
-            color: #bf6a02;
+            color: var(--text-gray);
             font-weight: 500;
+            max-width: 700px;
+            box-shadow: 0 4px 24px rgba(99, 102, 241, 0.1);
         }
 
-        /* Partner info section */
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: var(--success-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        /* Enhanced Partner Info */
         .partner-info {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 24px;
-            align-items: start;
-            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 56px;
+            margin: 100px 0;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 56px;
+            background: linear-gradient(135deg, var(--warm-gray) 0%, rgba(99, 102, 241, 0.02) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            position: relative;
+        }
+
+        .partner-info::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, var(--deep-purple), var(--electric-blue));
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0.1;
         }
 
         .partner-avatar-wrapper {
             position: relative;
+            flex-shrink: 0;
         }
 
         .partner-avatar {
@@ -288,426 +382,408 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #e1e3e5;
+            border: 4px solid var(--white);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .verified-badge {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: #1da1f2;
-            color: white;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            border: 2px solid white;
+        .partner-details {
+            flex: 1;
         }
 
         .partner-header {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .partner-details h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #202223;
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--soft-black);
+            letter-spacing: -1px;
             margin: 0;
         }
 
+        .verified-badge {
+            background: var(--success-green);
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
         .partner-description {
-            font-size: 14px;
-            color: #6d7175;
-            line-height: 1.6;
-            margin-bottom: 16px;
+            font-size: 17px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 40px;
         }
 
         .partner-badges {
             display: flex;
-            gap: 8px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
+            margin-bottom: 40px;
         }
 
         .badge {
-            background: #e8f5e8;
-            color: #00632b;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
+            background: var(--white);
+            color: var(--soft-black);
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .certifications {
-            margin-top: 16px;
+        .badge:first-child {
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
+            color: white;
+            border: none;
         }
 
         .certifications h4 {
-            font-size: 13px;
+            font-size: 18px;
             font-weight: 600;
-            color: #202223;
-            margin-bottom: 8px;
+            color: var(--soft-black);
+            margin-bottom: 20px;
         }
 
         .cert-list {
             list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
         }
 
         .cert-list li {
-            font-size: 12px;
-            color: #6d7175;
-            margin-bottom: 4px;
+            font-size: 15px;
+            color: var(--text-gray);
+            padding: 12px 0;
             position: relative;
-            padding-left: 16px;
+            padding-left: 32px;
+            font-weight: 500;
         }
 
         .cert-list li::before {
-            content: "🏆";
+            content: "✓";
             position: absolute;
             left: 0;
-            font-size: 10px;
+            color: var(--success-green);
+            font-weight: 700;
+            font-size: 16px;
         }
 
         .security-note {
-            background: #f0f9ff;
-            border: 1px solid #38bdf8;
-            border-radius: 6px;
-            padding: 12px;
-            font-size: 13px;
-            color: #0369a1;
-            margin-top: 16px;
+            background: rgba(0, 102, 255, 0.05);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            font-size: 15px;
+            color: var(--electric-blue);
+            margin-top: 32px;
+            font-weight: 500;
         }
 
-        /* Updated Results section - Matching reference design */
+        /* Enhanced Results Section */
         .results-section {
-            margin-bottom: 40px;
-            background: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e1e3e5;
+            margin: 140px 0;
+            text-align: center;
         }
 
         .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #202223;
-            margin-bottom: 8px;
-            text-align: center;
+            font-size: 56px;
+            font-weight: 200;
+            color: var(--soft-black);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
         }
 
         .section-subtitle {
-            font-size: 16px;
-            color: #6d7175;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .progress-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .progress-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #00848e;
-            margin-bottom: 16px;
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 100px;
+            font-weight: 300;
         }
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
         }
 
         .result-card {
-            background: #f8f9fa;
-            border-radius: 16px;
-            padding: 24px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 56px 40px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--deep-purple), var(--electric-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .result-card:hover::before {
+            transform: scaleX(1);
         }
 
         .result-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 132, 142, 0.15);
-            background: white;
-        }
-
-        .result-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .result-metric {
-            font-size: 24px;
-            font-weight: 700;
-            color: #00848e;
-            margin-bottom: 12px;
+            font-size: 48px;
+            font-weight: 200;
+            color: var(--soft-black);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .result-description {
-            font-size: 14px;
-            color: #6d7175;
-            line-height: 1.6;
+            font-size: 17px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* Visual results showcase */
-        .visual-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .visual-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .visual-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 132, 142, 0.2);
-        }
-
-        .visual-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .visual-card-content {
-            padding: 20px;
-        }
-
-        .visual-card h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #202223;
-            margin-bottom: 8px;
-        }
-
-        .visual-card p {
-            font-size: 14px;
-            color: #6d7175;
-            line-height: 1.5;
-        }
-
-        /* Updated Services section - Matching reference design */
+        /* Enhanced Services Section */
         .services-section {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e1e3e5;
+            background: linear-gradient(135deg, var(--warm-gray) 0%, rgba(99, 102, 241, 0.02) 100%);
+            padding: 140px 0;
+            margin: 140px 0;
+            border-radius: 32px;
+            position: relative;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
+            border-radius: 32px;
+            pointer-events: none;
         }
 
         .services-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 100px;
+            position: relative;
         }
 
         .services-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #202223;
-            margin-bottom: 12px;
+            font-size: 56px;
+            font-weight: 200;
+            color: var(--soft-black);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
         }
 
         .services-subtitle {
-            font-size: 16px;
-            color: #6d7175;
-            font-weight: 400;
+            font-size: 20px;
+            color: var(--text-gray);
+            font-weight: 300;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+            position: relative;
         }
 
         .service-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(0, 102, 255, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
         }
 
         .service-card:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 132, 142, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .service-icon {
-            width: 48px;
-            height: 48px;
-            background: #00848e;
-            border-radius: 12px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: white;
-            margin-bottom: 16px;
+            font-size: 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+            position: relative;
         }
 
         .service-title {
-            font-size: 16px;
+            font-size: 22px;
             font-weight: 600;
-            color: #202223;
-            margin-bottom: 8px;
+            color: var(--soft-black);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
         .service-description {
-            font-size: 14px;
-            color: #6d7175;
-            line-height: 1.5;
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* CTA section */
+        /* Premium CTA Section */
         .cta-section {
-            background: white;
-            border-radius: 12px;
-            padding: 32px;
+            background: linear-gradient(135deg, var(--soft-black) 0%, #2d3748 100%);
+            color: var(--white);
+            border-radius: 24px;
+            padding: 100px 80px;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e1e3e5;
-            margin-bottom: 32px;
+            margin: 140px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
+                        radial-gradient(circle at 80% 60%, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #202223;
-            margin-bottom: 12px;
+            font-size: 48px;
+            font-weight: 200;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .cta-description {
-            font-size: 15px;
-            color: #6d7175;
-            margin-bottom: 24px;
-            max-width: 500px;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 48px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 12px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .primary-button {
-            background: #00848e;
+        .primary-cta-button {
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
             color: white;
-            padding: 12px 20px;
+            padding: 20px 48px;
             border: none;
-            border-radius: 6px;
-            font-weight: 500;
+            border-radius: 16px;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            font-size: 14px;
-            transition: background 0.2s ease;
+            font-size: 18px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
-        .primary-button:hover {
-            background: #026c75;
+        .primary-cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
         }
 
-        .secondary-button {
-            background: transparent;
-            color: #6d7175;
-            padding: 12px 20px;
-            border: 1px solid #c9cccf;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.2s ease;
+        .primary-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
         }
 
-        .secondary-button:hover {
-            background: #f9f9fa;
-            color: #202223;
+        .primary-cta-button:hover:before {
+            left: 100%;
         }
 
         .guarantee-text {
-            font-size: 13px;
-            color: #8c9196;
-            margin-top: 16px;
-            font-style: italic;
-        }
-
-        /* Footer */
-        footer {
-            background: white;
-            border-top: 1px solid #e1e3e5;
-            padding: 40px 0;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 40px;
+            font-weight: 400;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-        }
-
-        .footer-section h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #202223;
-            margin-bottom: 12px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section ul li a {
-            color: #6d7175;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.2s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #00848e;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #e1e3e5;
-            margin-top: 32px;
-            padding-top: 20px;
-            text-align: center;
-            color: #8c9196;
-            font-size: 13px;
-        }
-
-        /* Updated Support Modal - Matching reference design */
+        /* Enhanced Support Modal System */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -715,9 +791,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            backdrop-filter: blur(12px);
+            animation: modalFadeIn 0.3s ease;
         }
 
         .modal-content {
@@ -726,274 +803,514 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            border-radius: 16px;
-            padding: 0;
+            border-radius: 24px;
             max-width: 520px;
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
 
         .modal-header {
-            padding: 32px 32px 24px;
+            padding: 48px 48px 32px;
             text-align: center;
-            background: linear-gradient(135deg, #00848e 0%, #026c75 100%);
-            color: white;
-            border-radius: 16px 16px 0 0;
-        }
-
-        .modal-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .modal-subtitle {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 0;
+            position: relative;
+            background: linear-gradient(135deg, var(--warm-gray) 0%, rgba(99, 102, 241, 0.05) 100%);
+            border-radius: 24px 24px 0 0;
         }
 
         .close-button {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(255, 255, 255, 0.2);
+            top: 20px;
+            right: 20px;
+            background: var(--light-gray);
             border: none;
             font-size: 24px;
-            color: white;
+            color: var(--text-gray);
             cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
         }
 
         .close-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
+            background: var(--soft-black);
+            color: var(--white);
+            transform: scale(1.1);
         }
 
+        .modal-title {
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--soft-black);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .modal-subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Live Support Channels - First Step */
         .support-channels {
-            padding: 24px 32px;
-            border-bottom: 1px solid #e1e3e5;
+            padding: 40px 48px;
         }
 
         .channels-title {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
-            color: #202223;
-            margin-bottom: 16px;
+            color: var(--soft-black);
+            margin-bottom: 32px;
             text-align: center;
         }
 
         .channel-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 20px;
+            margin-bottom: 32px;
         }
 
         .channel-option {
-            padding: 20px 12px;
-            border: 2px solid #e1e3e5;
-            border-radius: 12px;
+            padding: 32px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 16px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: white;
+            background: var(--white);
+            position: relative;
         }
 
         .channel-option:hover {
-            border-color: #00848e;
-            background: #f0fffe;
-            transform: translateY(-2px);
+            border-color: var(--deep-purple);
+            background: rgba(99, 102, 241, 0.02);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.15);
         }
 
         .channel-option.selected {
-            border-color: #00848e;
-            background: #e8f5f5;
-            box-shadow: 0 4px 12px rgba(0, 132, 142, 0.2);
+            border-color: var(--deep-purple);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(0, 102, 255, 0.05) 100%);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
         }
 
         .channel-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
         }
 
         .channel-name {
-            font-size: 12px;
-            color: #6d7175;
+            font-size: 14px;
+            color: var(--soft-black);
             font-weight: 600;
         }
 
-        .support-form {
-            padding: 24px 32px 32px;
+        .channel-status {
+            font-size: 12px;
+            color: var(--success-green);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Contact Form - Second Step */
+        .contact-form {
+            padding: 40px 48px;
+            display: none;
+            animation: slideInUp 0.4s ease;
+        }
+
+        .contact-form.active {
+            display: block;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .form-header h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--soft-black);
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        .selected-channel {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 32px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
         }
 
         .form-label {
             display: block;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
-            color: #202223;
-            margin-bottom: 8px;
+            color: var(--soft-black);
+            margin-bottom: 12px;
         }
 
-        .form-input {
+        .form-input,
+        .form-select,
+        .form-textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e1e3e5;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            background: white;
+            padding: 16px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--white);
+            font-family: inherit;
+            font-weight: 400;
         }
 
-        .form-input:focus {
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
             outline: none;
-            border-color: #00848e;
-            box-shadow: 0 0 0 3px rgba(0, 132, 142, 0.1);
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e1e3e5;
-            border-radius: 8px;
-            font-size: 14px;
-            background: white;
-            cursor: pointer;
+            border-color: var(--deep-purple);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            background: rgba(99, 102, 241, 0.01);
         }
 
         .form-textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e1e3e5;
-            border-radius: 8px;
-            font-size: 14px;
             resize: vertical;
-            min-height: 100px;
-            font-family: inherit;
+            min-height: 120px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .back-button {
+            background: var(--light-gray);
+            color: var(--soft-black);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--text-gray);
+            color: var(--white);
+            transform: translateY(-1px);
         }
 
         .submit-button {
-            width: 100%;
-            background: linear-gradient(135deg, #00848e 0%, #026c75 100%);
+            flex: 1;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--electric-blue) 100%);
             color: white;
-            padding: 16px;
+            padding: 16px 32px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s ease;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
         }
 
         .submit-button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 132, 142, 0.3);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .submit-button:hover:before {
+            left: 100%;
         }
 
         .submit-button:disabled {
-            background: #8c9196;
+            background: var(--text-gray);
             cursor: not-allowed;
+            transform: none;
         }
 
-        .ticket-info {
-            background: #f0f9ff;
-            border: 1px solid #38bdf8;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 16px;
-            font-size: 13px;
-            color: #0369a1;
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            margin: 20px 0;
         }
 
-        /* Responsive design */
+        .success-message.active {
+            display: block;
+            animation: slideInUp 0.4s ease;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            color: var(--success-green);
+            margin-bottom: 16px;
+        }
+
+        .success-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--soft-black);
+            margin-bottom: 8px;
+        }
+
+        .success-text {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(135deg, var(--warm-gray) 0%, rgba(99, 102, 241, 0.02) 100%);
+            padding: 100px 0 50px;
+            margin-top: 140px;
+            border-radius: 32px 32px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 56px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--soft-black);
+            margin-bottom: 24px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 16px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--deep-purple);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Visual Results Enhancement */
+        .visual-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+        }
+
+        .visual-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .visual-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .visual-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .visual-card-content {
+            padding: 40px;
+        }
+
+        .visual-card h4 {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--soft-black);
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             .nav-links {
                 display: none;
             }
 
+            .hero-title {
+                font-size: 48px;
+                letter-spacing: -2px;
+            }
+
             .partner-info {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                flex-direction: column;
                 text-align: center;
+                gap: 40px;
+                padding: 40px;
             }
 
-            .partner-avatar-wrapper {
-                justify-self: center;
+            .partner-header {
+                justify-content: center;
             }
 
-            .hero-section,
-            .services-section,
-            .cta-section,
-            .results-section {
-                padding: 24px;
-            }
-
-            .hero-title,
             .section-title,
             .services-title {
-                font-size: 24px;
-            }
-
-            .results-grid,
-            .services-grid,
-            .visual-results {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .preloader-logo {
-                font-size: 36px;
-            }
-
-            .preloader-logo::before {
                 font-size: 40px;
             }
 
-            .preloader-tagline {
-                font-size: 14px;
+            .cta-title {
+                font-size: 36px;
             }
 
-            .modal-content {
-                width: 95%;
-                margin: 20px;
+            .cta-section {
+                padding: 80px 40px;
             }
 
             .modal-header,
             .support-channels,
-            .support-form {
-                padding-left: 20px;
-                padding-right: 20px;
+            .contact-form {
+                padding: 32px 24px;
+            }
+
+            .channel-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .visual-results {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .status-banner {
+                padding: 20px 24px;
+                font-size: 14px;
+            }
+
+            .services-section,
+            .footer {
+                border-radius: 24px;
+            }
+
+            .cta-section {
+                border-radius: 20px;
+                padding: 60px 32px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
+    <!-- Enhanced Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">Timeless Conceptz</div>
-            <div class="preloader-tagline">Professional Shopify Partner Gateway</div>
+            <div class="preloader-tagline">Premium Digital Agency</div>
             <div class="preloader-spinner"></div>
             <div class="preloader-progress">
                 <div class="preloader-progress-bar"></div>
             </div>
-            <div class="preloader-status" id="preloader-status">Loading partner dashboard...</div>
+            <div class="preloader-status" id="preloader-status">Loading experience...</div>
         </div>
     </div>
 
@@ -1004,9 +1321,12 @@
                 <div class="header-content">
                     <div class="logo">Timeless Conceptz</div>
                     <ul class="nav-links">
-                     
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
-                    <button onclick="openSupportModal()" class="contact-button">Connect with Partner</button>
+                    <button onclick="openSupportModal()" class="cta-button">Get Started</button>
                 </div>
             </div>
         </header>
@@ -1014,167 +1334,153 @@
         <div class="container">
             <div class="main-content">
                 <div class="hero-section">
-                    <div class="hero-header">
-                        <h1 class="hero-title">Complete Shopify Store Growth & Compliance Review</h1>
-                        <p class="hero-subtitle">We provide a complete compliance audit, conversion optimization review, and tailored growth strategy for your store. Technical fixes, marketing guidance, and certified developer referrals — all aimed at boosting sales and securing your merchant account.</p>
-                    </div>
+                    <h1 class="hero-title">Premium Digital Experiences That <span class="highlight">Drive Results</span></h1>
+                    <p class="hero-subtitle">We craft exceptional digital solutions for forward-thinking brands. From strategy to execution, we deliver experiences that captivate audiences and accelerate growth.</p>
 
                     <div class="status-banner">
-                        <span class="status-text">Priority Notice: Delayed response may impact store compliance status. Connect with your assigned partner to resolve.</span>
+                        <div class="status-indicator"></div>
+                        <span>Currently accepting new projects for Q1 2025 • Limited availability</span>
                     </div>
 
                     <div class="partner-info">
                         <div class="partner-avatar-wrapper">
                             <img src="https://i.imgur.com/8J06u0n.jpeg" alt="Donald Williams" class="partner-avatar">
-                            <div class="verified-badge">✓</div>
                         </div>
                         <div class="partner-details">
                             <div class="partner-header">
                                 <h3>Donald Williams</h3>
+                                <div class="verified-badge">✓</div>
                             </div>
-                            <p class="partner-description">Certified Shopify Plus partner specializing in store migrations, performance optimization, and conversion rate improvements. Over 5 years helping merchants scale their businesses with technical expertise and growth strategies.</p>
+                            <p class="partner-description">Creative Director and Lead Strategist with over 8 years of experience crafting digital experiences for Fortune 500 companies and innovative startups. Specialized in brand strategy, digital design, and growth marketing.</p>
                             
                             <div class="partner-badges">
-                                <span class="badge">Shopify Plus Partner</span>
-                                <span class="badge">150+ Projects</span>
-                                <span class="badge">24hr Response</span>
+                                <span class="badge">Creative Director</span>
+                                <span class="badge">200+ Projects</span>
+                                <span class="badge">Award Winner</span>
                             </div>
 
                             <div class="certifications">
-                                <h4>Certifications & Expertise</h4>
+                                <h4>Expertise & Certifications</h4>
                                 <ul class="cert-list">
-                                    <li>Shopify Plus Certified Developer</li>
-                                    <li>Google Analytics 4 Certified</li>
-                                    <li>Facebook Blueprint Certified</li>
-                                    <li>Conversion Rate Optimization Specialist</li>
-                                    <li>Technical SEO Expert</li>
+                                    <li>Google Analytics & Ads Certified</li>
+                                    <li>Adobe Creative Suite Expert</li>
+                                    <li>UX/UI Design Specialist</li>
+                                    <li>Digital Marketing Strategist</li>
+                                    <li>Brand Identity Development</li>
+                                    <li>Conversion Optimization Expert</li>
                                 </ul>
                             </div>
                             
                             <div class="security-note">
-                                🔒 All merchant conversations are encrypted and handled under Shopify Partner Program best practices and compliance standards.
+                                🔒 All client projects are protected under strict NDA agreements and industry-leading security protocols.
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Updated Results Section - Matching Reference Design -->
+                <!-- Results Section -->
                 <div class="results-section">
-                    <div class="progress-header">
-                        <h2 class="progress-title">Case Progress</h2>
-                    </div>
-                    
-                    <h2 class="section-title">Recent Merchant Success Stories</h2>
-                    <p class="section-subtitle">Real results from our certified specialist network</p>
+                    <h2 class="section-title">Proven Impact</h2>
+                    <p class="section-subtitle">Real results from our premium client partnerships</p>
                     
                     <div class="results-grid">
                         <div class="result-card">
-                            <div class="result-metric">+30% conversion</div>
-                            <div class="result-description">Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks for a wellness brand.</div>
+                            <div class="result-metric">+285%</div>
+                            <div class="result-description">Average increase in conversion rates through our strategic UX/UI redesigns and optimization processes.</div>
                         </div>
 
                         <div class="result-card">
-                            <div class="result-metric">+45% organic traffic</div>
-                            <div class="result-description">SEO audit + metadata improvements increased organic visits by 45% in 60 days for a home goods store.</div>
+                            <div class="result-metric">+150%</div>
+                            <div class="result-description">Boost in organic traffic within 90 days through comprehensive SEO and content strategy implementations.</div>
                         </div>
 
                         <div class="result-card">
-                            <div class="result-metric">+40% revenue</div>
-                            <div class="result-description">CRO & ad funnel optimization scaled revenue 40% quarter-over-quarter for a fashion merchant.</div>
+                            <div class="result-metric">+320%</div>
+                            <div class="result-description">Revenue growth for e-commerce clients through conversion optimization and strategic marketing campaigns.</div>
                         </div>
                     </div>
 
                     <div class="visual-results">
                         <div class="visual-card">
-                            <img src="https://i.pinimg.com/736x/6c/71/e8/6c71e84df436880b442e6598dc4a999e.jpg" alt="Conversion lift chart">
+                            <img src="https://i.pinimg.com/736x/6c/71/e8/6c71e84df436880b442e6598dc4a999e.jpg" alt="Conversion optimization results">
                             <div class="visual-card-content">
-                                <h4>Quick checkout fixes & trust badges boosted conversions by 30% in 2 weeks.</h4>
+                                <h4>Strategic UX redesign increased client conversions by 285% in just 8 weeks.</h4>
                             </div>
                         </div>
 
                         <div class="visual-card">
-                            <img src="https://i.pinimg.com/736x/e4/8f/df/e48fdf1b74b2471bf537193df06c01ac.jpg" alt="SEO visibility">
+                            <img src="https://i.pinimg.com/736x/e4/8f/df/e48fdf1b74b2471bf537193df06c01ac.jpg" alt="SEO growth analytics">
                             <div class="visual-card-content">
-                                <h4>SEO audit + metadata improvements increased organic visits by 45% in 60 days.</h4>
+                                <h4>Comprehensive SEO strategy delivered 150% organic traffic growth within 90 days.</h4>
                             </div>
                         </div>
 
                         <div class="visual-card">
-                            <img src="https://i.pinimg.com/736x/fb/fa/1d/fbfa1dabc7dd0a3ceec42dd23e140a98.jpg" alt="Revenue growth graph">
+                            <img src="https://i.pinimg.com/736x/fb/fa/1d/fbfa1dabc7dd0a3ceec42dd23e140a98.jpg" alt="Revenue growth dashboard">
                             <div class="visual-card-content">
-                                <h4>CRO & ad funnel tweaks scaled revenue 40% quarter-over-quarter for a fashion merchant.</h4>
+                                <h4>E-commerce optimization and marketing campaigns scaled revenue by 320%.</h4>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Updated Services Section - Matching Reference Design -->
+                <!-- Services Section -->
                 <div class="services-section">
                     <div class="services-header">
-                        <h2 class="services-title">Comprehensive Store Growth Services</h2>
-                        <p class="services-subtitle">Our certified specialist network provides end-to-end merchant support:</p>
+                        <h2 class="services-title">Premium Services</h2>
+                        <p class="services-subtitle">Comprehensive digital solutions tailored for exceptional brands</p>
                     </div>
                     
                     <div class="services-grid">
                         <div class="service-card">
-                            <div class="service-icon">🔒</div>
-                            <h3 class="service-title">Compliance & Security</h3>
-                            <p class="service-description">Protect your store and payments with expert guidance.</p>
+                            <div class="service-icon">🎨</div>
+                            <h3 class="service-title">Brand Identity & Design</h3>
+                            <p class="service-description">Complete brand development from strategy to visual identity, creating memorable experiences that resonate with your audience.</p>
                         </div>
 
                         <div class="service-card">
-                            <div class="service-icon">📈</div>
-                            <h3 class="service-title">Marketing & Sales Growth</h3>
-                            <p class="service-description">Boost your revenue with tailored campaigns and strategies.</p>
+                            <div class="service-icon">💻</div>
+                            <h3 class="service-title">Web Design & Development</h3>
+                            <p class="service-description">Custom websites and digital platforms built for performance, scalability, and exceptional user experience.</p>
                         </div>
 
                         <div class="service-card">
-                            <div class="service-icon">🔍</div>
-                            <h3 class="service-title">SEO & Store Visibility</h3>
-                            <p class="service-description">Improve search ranking and attract more customers.</p>
+                            <div class="service-icon">📱</div>
+                            <h3 class="service-title">Mobile App Development</h3>
+                            <p class="service-description">Native and cross-platform mobile applications designed to engage users and drive business growth.</p>
                         </div>
 
                         <div class="service-card">
-                            <div class="service-icon">⚡</div>
-                            <h3 class="service-title">Shopify Best Practices</h3>
-                            <p class="service-description">Optimize your store operations and performance for success.</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">💳</div>
-                            <h3 class="service-title">Payment Optimization</h3>
-                            <p class="service-description">Gateway optimization & fraud prevention solutions.</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">🎯</div>
-                            <h3 class="service-title">Conversion Rate Optimization</h3>
-                            <p class="service-description">A/B testing and user experience improvements.</p>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-icon">🔧</div>
-                            <h3 class="service-title">Custom Development</h3>
-                            <p class="service-description">Shopify Plus migration & bespoke functionality.</p>
+                            <div class="service-icon">🚀</div>
+                            <h3 class="service-title">Digital Marketing</h3>
+                            <p class="service-description">Strategic campaigns across all digital channels to maximize reach, engagement, and conversions.</p>
                         </div>
 
                         <div class="service-card">
                             <div class="service-icon">📊</div>
-                            <h3 class="service-title">Analytics & Monitoring</h3>
-                            <p class="service-description">Performance tracking and data-driven insights.</p>
+                            <h3 class="service-title">Analytics & Optimization</h3>
+                            <p class="service-description">Data-driven insights and continuous optimization to maximize your digital performance and ROI.</p>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">🎯</div>
+                            <h3 class="service-title">Strategy Consulting</h3>
+                            <p class="service-description">Comprehensive digital strategy development to align your brand with market opportunities and growth objectives.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="cta-section">
-                    <h2 class="cta-title">Ready to Scale Your Store?</h2>
-                    <p class="cta-description">Connect with your assigned Shopify partner for a comprehensive store review. We'll identify growth opportunities, compliance issues, and provide actionable recommendations within 24 hours.</p>
-                    
-                    <div class="cta-buttons">
-                        <button onclick="openSupportModal()" class="primary-button">Start Store Review</button>
+                    <div class="cta-content">
+                        <h2 class="cta-title">Ready to Transform Your Digital Presence?</h2>
+                        <p class="cta-description">Let's discuss your vision and create something extraordinary together. Our team is ready to bring your brand to the next level with premium digital solutions.</p>
+                        
+                        <div class="cta-buttons">
+                            <button onclick="openSupportModal()" class="primary-cta-button">Start Your Project</button>
+                        </div>
+                        
+                        <p class="guarantee-text">• Free consultation • Custom strategy • Premium support</p>
                     </div>
-                    
-                    <p class="guarantee-text">• Pay only for implemented solutions • 90-day growth guarantee</p>
                 </div>
             </div>
         </div>
@@ -1183,115 +1489,152 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h4>Partner Services</h4>
+                        <h4>Services</h4>
                         <ul>
-                            <li><a href="#audit">Store Compliance Audit</a></li>
-                            <li><a href="#development">Custom Development</a></li>
-                            <li><a href="#optimization">Conversion Optimization</a></li>
-                            <li><a href="#migration">Plus Migration</a></li>
+                            <li><a href="#brand">Brand Identity</a></li>
+                            <li><a href="#web">Web Development</a></li>
+                            <li><a href="#mobile">Mobile Apps</a></li>
+                            <li><a href="#marketing">Digital Marketing</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
-                        <h4>Contact Info</h4>
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contact</h4>
                         <ul>
                             <li><a href="mailto:Timelessdigitalmarketing8@gmail.com">Timelessdigitalmarketing8@gmail.com</a></li>
                             <li><a href="tel:+1 (701) 659-7726">+1 (701) 659-7726</a></li>
-                            <li><a href="#chat">Live Chat Available</a></li>
-                            <li><a href="#hours">24/7 Emergency Line</a></li>
+                            <li><a href="#consultation">Free Consultation</a></li>
+                            <li><a href="#support">24/7 Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Follow Us</h4>
+                        <ul>
+                            <li><a href="#instagram">Instagram</a></li>
+                            <li><a href="#linkedin">LinkedIn</a></li>
+                            <li><a href="#behance">Behance</a></li>
+                            <li><a href="#dribbble">Dribbble</a></li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 Timeless Conceptz. Licensed under Shopify Partner Program. All merchant data protected under SOC 2 compliance.</p>
+                    <p>&copy; 2025 Timeless Conceptz. Premium Digital Agency. All rights reserved.</p>
                 </div>
             </div>
         </footer>
 
-        <!-- Updated Support Modal - Matching Reference Design -->
+        <!-- Premium Support Modal System -->
         <div id="supportModal" class="modal-overlay" onclick="closeSupportModal(event)">
             <div class="modal-content" onclick="event.stopPropagation()">
                 <div class="modal-header">
-                    <button class="close-button" onclick="closeSupportModal()">&times;</button>
-                    <h3 class="modal-title">Connect with Partner Support</h3>
-                    <p class="modal-subtitle">Choose your preferred support channel and describe your store needs</p>
+                    <button class="close-button" onclick="closeSupportModal()">×</button>
+                    <h3 class="modal-title">Let's Start Your Project</h3>
+                    <p class="modal-subtitle">Choose your preferred contact method to connect with our team</p>
                 </div>
 
-                <div class="support-channels">
-                    <div class="channels-title">Select Your Preferred Channel</div>
+                <!-- Step 1: Live Support Channels -->
+                <div class="support-channels" id="supportChannels">
+                    <div class="channels-title">Live Support Available</div>
                     <div class="channel-grid">
                         <div class="channel-option" data-channel="whatsapp" onclick="selectChannel('whatsapp')">
                             <div class="channel-icon">💬</div>
                             <div class="channel-name">WhatsApp</div>
+                            <div class="channel-status">Online</div>
                         </div>
                         <div class="channel-option" data-channel="telegram" onclick="selectChannel('telegram')">
                             <div class="channel-icon">✈️</div>
                             <div class="channel-name">Telegram</div>
+                            <div class="channel-status">Online</div>
                         </div>
                         <div class="channel-option" data-channel="gmail" onclick="selectChannel('gmail')">
                             <div class="channel-icon">✉️</div>
                             <div class="channel-name">Email</div>
+                            <div class="channel-status">24/7</div>
                         </div>
                     </div>
                 </div>
 
-                <form class="support-form" onsubmit="submitSupportRequest(event)">
-                    <div class="form-group">
-                        <label class="form-label">Store URL *</label>
-                        <input type="text" class="form-input" name="storeUrl" placeholder="https://your-store.myshopify.com" required>
+                <!-- Step 2: Contact Form -->
+                <div class="contact-form" id="contactForm">
+                    <div class="form-header">
+                        <h3>Project Details</h3>
+                        <p>Tell us about your vision and we'll connect you via <span class="selected-channel" id="selectedChannelDisplay"></span></p>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Email Address *</label>
-                        <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
-                    </div>
+                    <form onsubmit="submitContactForm(event)">
+                        <div class="form-group">
+                            <label class="form-label">Company/Project Name *</label>
+                            <input type="text" class="form-input" name="projectName" placeholder="Your company or project name" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Issue Type</label>
-                        <select class="form-select" name="issueType">
-                            <option value="compliance">Store Compliance Review</option>
-                            <option value="seo">SEO & Performance Audit</option>
-                            <option value="conversion">Conversion Rate Optimization</option>
-                            <option value="payment">Payment Gateway Issues</option>
-                            <option value="migration">Shopify Plus Migration</option>
-                            <option value="development">Custom Development</option>
-                            <option value="marketing">Marketing & Growth Strategy</option>
-                            <option value="other">Others</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Additional Details</label>
-                        <textarea class="form-textarea" name="details" placeholder="Please describe your store's current challenges, goals, or specific issues you'd like our partner to address..."></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label">Service Type</label>
+                            <select class="form-select" name="serviceType">
+                                <option value="brand">Brand Identity & Design</option>
+                                <option value="web">Web Design & Development</option>
+                                <option value="mobile">Mobile App Development</option>
+                                <option value="marketing">Digital Marketing</option>
+                                <option value="analytics">Analytics & Optimization</option>
+                                <option value="strategy">Strategy Consulting</option>
+                                <option value="multiple">Multiple Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
 
-                    <button type="submit" class="submit-button" id="submitBtn">Connect via Selected Channel</button>
+                        <div class="form-group">
+                            <label class="form-label">Project Details</label>
+                            <textarea class="form-textarea" name="details" placeholder="Tell us about your vision, goals, timeline, and any specific requirements..."></textarea>
+                        </div>
 
-                    <div class="ticket-info" id="ticketInfo" style="display: none;">
-                        Your support ticket <strong id="ticketId"></strong> has been created and you'll be redirected to your selected support channel with all details pre-filled.
-                    </div>
-                </form>
+                        <div class="form-actions">
+                            <button type="button" class="back-button" onclick="goBackToChannels()">← Back</button>
+                            <button type="submit" class="submit-button" id="submitBtn">Connect Now</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">🎉</div>
+                    <div class="success-title">Connection Initiated!</div>
+                    <div class="success-text">You're being redirected to your selected platform with all your project details included.</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Preloader functionality
+        // Enhanced JavaScript functionality
         let selectedChannel = null;
 
         // Preloader status messages
         const statusMessages = [
-            'Loading partner dashboard...',
-            'Initializing secure connection...',
-            'Verifying partner credentials...',
-            'Loading merchant portal...',
-            'Ready to connect!'
+            'Loading experience...',
+            'Preparing premium interface...',
+            'Optimizing performance...',
+            'Finalizing details...',
+            'Welcome to Timeless Conceptz!'
         ];
 
         let currentMessage = 0;
 
-        // Update preloader status text
         function updatePreloaderStatus() {
             const statusElement = document.getElementById('preloader-status');
             if (statusElement && currentMessage < statusMessages.length - 1) {
@@ -1303,46 +1646,59 @@
             }
         }
 
-        // Start preloader
         window.addEventListener('load', function() {
             updatePreloaderStatus();
             
-            // Hide preloader after 3.2 seconds (matching progress animation)
             setTimeout(function() {
                 document.getElementById('preloader').classList.add('hidden');
                 document.getElementById('mainWrapper').classList.add('loaded');
             }, 3200);
         });
 
-        // Support Modal Functions
+        // Enhanced Support Modal Functions
         function openSupportModal() {
             document.getElementById('supportModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
+            showSupportChannels();
         }
 
         function closeSupportModal(event) {
             if (!event || event.target === event.currentTarget) {
                 document.getElementById('supportModal').style.display = 'none';
                 document.body.style.overflow = 'auto';
-                
-                // Reset form
-                document.querySelector('.support-form').reset();
-                selectedChannel = null;
-                
-                // Clear channel selections
-                document.querySelectorAll('.channel-option').forEach(option => {
-                    option.classList.remove('selected');
-                });
-                
-                // Reset button text
-                document.getElementById('submitBtn').textContent = 'Connect via Selected Channel';
-                
-                // Hide ticket info
-                document.getElementById('ticketInfo').style.display = 'none';
+                resetModal();
             }
         }
 
-        // Close modal with Escape key
+        function resetModal() {
+            selectedChannel = null;
+            showSupportChannels();
+            document.querySelector('.contact-form form').reset();
+            document.querySelectorAll('.channel-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('successMessage').classList.remove('active');
+        }
+
+        function showSupportChannels() {
+            document.getElementById('supportChannels').style.display = 'block';
+            document.getElementById('contactForm').classList.remove('active');
+            document.getElementById('successMessage').classList.remove('active');
+        }
+
+        function showContactForm() {
+            document.getElementById('supportChannels').style.display = 'none';
+            document.getElementById('contactForm').classList.add('active');
+        }
+
+        function goBackToChannels() {
+            showSupportChannels();
+            selectedChannel = null;
+            document.querySelectorAll('.channel-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+        }
+
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeSupportModal(event);
@@ -1359,76 +1715,225 @@
             
             document.querySelector(`[data-channel="${channel}"]`).classList.add('selected');
             
-            // Update button text
-            const channelNames = {
-                whatsapp: 'Connect via WhatsApp',
-                telegram: 'Connect via Telegram', 
-                gmail: 'Connect via Email'
+            // Show contact form after selection
+            setTimeout(() => {
+                showContactForm();
+                updateSelectedChannelDisplay();
+            }, 300);
+        }
+
+        function updateSelectedChannelDisplay() {
+            const channelInfo = {
+                whatsapp: { icon: '💬', name: 'WhatsApp' },
+                telegram: { icon: '✈️', name: 'Telegram' }, 
+                gmail: { icon: '✉️', name: 'Email' }
             };
             
-            document.getElementById('submitBtn').textContent = channelNames[channel];
+            const info = channelInfo[selectedChannel];
+            document.getElementById('selectedChannelDisplay').innerHTML = `${info.icon} ${info.name}`;
         }
 
         function generateTicketId() {
             const timestamp = Date.now();
             const random = Math.floor(Math.random() * 1000);
-            return `SX-${random}`;
+            return `TC-${random.toString().padStart(3, '0')}`;
         }
 
-        function submitSupportRequest(event) {
+        function submitContactForm(event) {
             event.preventDefault();
-            
-            if (!selectedChannel) {
-                alert('Please select a support channel (WhatsApp, Telegram, or Email)');
-                return;
-            }
             
             const formData = new FormData(event.target);
             const ticketId = generateTicketId();
             
-            // Show ticket info
-            document.getElementById('ticketId').textContent = ticketId;
-            document.getElementById('ticketInfo').style.display = 'block';
+            // Show success message
+            document.getElementById('contactForm').classList.remove('active');
+            document.getElementById('successMessage').classList.add('active');
             
-            // Prepare message
-            const message = `🎫 SUPPORT TICKET: ${ticketId}
-            
-🏪 STORE DETAILS:
-• Store URL: ${formData.get('storeUrl')}
-• Contact Email: ${formData.get('email')}
-• Issue Type: ${formData.get('issueType')}
+            // Prepare enhanced message
+            const message = `🎨 NEW PROJECT INQUIRY: ${ticketId}
 
-📝 ADDITIONAL DETAILS:
+🏢 CLIENT INFORMATION:
+• Company/Project: ${formData.get('projectName')}
+• Contact Email: ${formData.get('email')}
+• Service Type: ${formData.get('serviceType')}
+
+📝 PROJECT DETAILS:
 ${formData.get('details') || 'No additional details provided'}
 
-⏰ REQUEST TIME: ${new Date().toLocaleString()}
+⏰ INQUIRY SUBMITTED: ${new Date().toLocaleString()}
+🎯 PREFERRED CONTACT: ${selectedChannel.toUpperCase()}
 
 ---
-This request has been received. Our certified Shopify partner Donald Williams will review your store and provide comprehensive recommendations within 1-2 hours.`;
+Thank you for choosing Timeless Conceptz! Our creative team will review your project requirements and provide a comprehensive proposal within 24 hours. We look forward to bringing your vision to life.`;
 
             // Redirect based on selected channel
             setTimeout(() => {
                 switch(selectedChannel) {
                     case 'whatsapp':
-                        const phoneNumber = "17016597726"; // cleaned format
+                        const phoneNumber = "17016597726";
                         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
                         break;
                     case 'telegram':
                         window.open(`https://t.me/timeless_digitalz?text=${encodeURIComponent(message)}`, '_blank');
                         break;
                     case 'gmail':
-                        const subject = `Support Request: ${ticketId} - ${formData.get('issueType')}`;
+                        const subject = `Project Inquiry: ${ticketId} - ${formData.get('serviceType')}`;
                         window.open(`mailto:Timelessdigitalmarketing8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, '_blank');
                         break;
                 }
                 
-                // Close modal after sending
+                // Close modal after redirect
                 setTimeout(() => {
                     closeSupportModal();
-                }, 1000);
+                }, 2000);
                 
-            }, 2000);
+            }, 2500);
         }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Enhanced animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        window.addEventListener('load', function() {
+            const animatedElements = document.querySelectorAll('.result-card, .service-card, .visual-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Add particle effect to hero section (optional enhancement)
+        function createParticle() {
+            const heroSection = document.querySelector('.hero-section');
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = Math.random() * 4 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(0, 102, 255, 0.3))';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            
+            heroSection.appendChild(particle);
+            
+            const duration = Math.random() * 3000 + 2000;
+            particle.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 0 },
+                { transform: 'translateY(-100px) rotate(180deg)', opacity: 1 },
+                { transform: 'translateY(-800px) rotate(360deg)', opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            }).onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Enhanced form validation
+        const inputs = document.querySelectorAll('.form-input, .form-textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateInput);
+            input.addEventListener('input', clearValidationError);
+        });
+
+        function validateInput(e) {
+            const input = e.target;
+            const value = input.value.trim();
+            
+            if (input.hasAttribute('required') && !value) {
+                showInputError(input, 'This field is required');
+            } else if (input.type === 'email' && value && !isValidEmail(value)) {
+                showInputError(input, 'Please enter a valid email address');
+            } else {
+                clearInputError(input);
+            }
+        }
+
+        function clearValidationError(e) {
+            clearInputError(e.target);
+        }
+
+        function showInputError(input, message) {
+            clearInputError(input);
+            input.style.borderColor = '#ef4444';
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'input-error';
+            errorDiv.style.color = '#ef4444';
+            errorDiv.style.fontSize = '13px';
+            errorDiv.style.marginTop = '8px';
+            errorDiv.textContent = message;
+            input.parentNode.appendChild(errorDiv);
+        }
+
+        function clearInputError(input) {
+            input.style.borderColor = '';
+            const errorDiv = input.parentNode.querySelector('.input-error');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Performance optimization - lazy loading images
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
     </script>
 </body>
 </html>
